@@ -47,6 +47,7 @@ export default function LoginPage() {
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
         <h1>{loading ? "Processing" : "Login"}</h1>
         <hr />
+        <h1>hello world</h1>
         
         <label htmlFor="email">email</label>
         <input 
