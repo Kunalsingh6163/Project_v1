@@ -4,9 +4,7 @@ import React, {useEffect} from "react";
 import {useRouter} from "next/navigation";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import sushiImage from '../Assets/sushiImage.png'
-import Image from "next/image";
-import { TextField } from "@mui/material";
+
 
 
 
@@ -46,8 +44,7 @@ export default function LoginPage() {
     }, [user]); 
 
     return (
-
-    <main className='flex flex-col md:flex-row min-h-screen'>
+    <div className="flex flex-col items-center justify-center min-h-screen py-2">
         <h1>{loading ? "Processing" : "Login"}</h1>
         <hr/>
     {/*left section*/}
