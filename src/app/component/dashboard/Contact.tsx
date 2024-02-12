@@ -6,64 +6,52 @@ import { toast } from "react-hot-toast";
 import { Card, CardContent, Typography,Box, Button, Link } from '@mui/material';
 import Image from 'next/image';
 import TextField from '@mui/material/TextField';
-import {IconButton,} from '@mui/material';
-import { Visibility,VisibilityOff } from '@mui/icons-material';
-import Appbar from "../component/dashboard/Dashboard";
 
 
 
-export default function SignupPage() {
+export default function Contact() {
     const router = useRouter();
     const [user, setUser] = React.useState({
         firstName: '',
         lastName: '',
         email: '',
-        mobileNo: '',
-        password: '',
+        mobileNo: '',        
+        message:'',
     })
     const [buttonDisabled, setButtonDisabled] = React.useState(false);
     const [loading, setLoading] = React.useState(false);
-    const [showPassword, setShowPassword] = React.useState(false);
     
-    const onSignup = async () => {
+
+    useEffect(() => {
+        if(user.email.length > 0 && user.message.length > 0 && user.firstName.length > 0 && user.lastName.length > 0 && user.mobileNo.length > 0) {
+            setButtonDisabled(false);
+        } else {
+            setButtonDisabled(true);
+        }
+    }, [user]);
+    
+      const onSubmit = async () => {
         try {
             setLoading(true);
-            const response = await axios.post("/api/users/signup", user);
-            console.log("Signup successful", response.data);
-            router.push("/login");
+            const response = await axios.post("/api/users/Submit", user);
+            console.log("Submitted ", response.data);
+            router.push("");
             
         } catch (error:any) {
-            console.log("Signup failed", error.message);
+            console.log("Submit failed", error.message);
             
             toast.error(error.message);
         }finally {
             setLoading(false);
         }
     }
-    
-
-    useEffect(() => {
-        if(user.email.length > 0 && user.password.length > 0 && user.firstName.length > 0 && user.lastName.length > 0 && user.mobileNo.length > 0) {
-            setButtonDisabled(false);
-        } else {
-            setButtonDisabled(true);
-        }
-    }, [user]);
-    const handleClickShowPassword = () => {
-        setShowPassword(!showPassword);
-      };
-    
-    const handleMouseDownPassword = (event:any) => {
-        event.preventDefault();
-      };
 
 
     return (
       
       <Box>
-      <Appbar/>
-      {loading && <Box>Loading...</Box>}
         <Box>
+        {loading && <Box>Loading...</Box>}
         <Card
         sx={{
           position: 'absolute',
@@ -85,7 +73,7 @@ export default function SignupPage() {
            
         <Box> 
           <CardContent>
-                            
+                           
              <Image  style={{ position: 'absolute',height:"90%", left: '25%',maxWidth:'80%', transform: 'translateX(-50%)' }}
                src="stall.svg"
                alt="Picture of a stall"
@@ -105,16 +93,17 @@ export default function SignupPage() {
                 
                 }} >
               <Typography variant="h4" fontWeight="600" color="#0024E0">
-                Welcome To Foodies Counter
+                Contact Information
               </Typography>
             </Box>
             
 
             <Box sx={{  position: 'absolute', fontFamily: "Poppins,sans-serif",width:'100%', maxwidth: '100px', top: '100px', left: '70%', transform: 'translateX(-50%)',fontWeight:'500', textAlign:'center' }}>
               <Typography variant="h5" fontWeight="600" color="#0024E0" >
-                Sign-Up Here!
+                Contact Info Here!
               </Typography>
             </Box>
+            <Box>            
             
                   <Box sx={{ position: 'absolute', fontFamily: "Poppins,sans-serif",width:'40%', maxWidth: '600px', top: '120px', left: '70%', transform: 'translateX(-50%)',fontWeight:'500', textAlign:'center',}}>
                   <TextField label="First Name" name='firstName' value={user.firstName} required onChange={(e) => setUser({...user, firstName: e.target.value})} fullWidth margin="normal"  />
@@ -122,23 +111,11 @@ export default function SignupPage() {
                   <TextField label="Email id" name='email' required type='email' value={user.email} onChange={(e) => setUser({...user, email: e.target.value})} fullWidth margin="normal"/>
                   <TextField label="Mobile No" name='number' required type='number' value={user.mobileNo} onChange={(e) => setUser({...user, mobileNo: e.target.value})} fullWidth margin="normal" />
                   
-                  <TextField label="Password" name='password' required 
-                  type={showPassword ? 'text' : 'password'}
-                  InputProps={{
-                    endAdornment: (
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                      >
-                        {showPassword ? <Visibility /> : <VisibilityOff />}
-                      </IconButton>
-                     ),
-                    }} value={user.password} onChange={(e) => setUser({...user, password: e.target.value})} fullWidth margin="normal" />
+                  <TextField label="Message" name='message' required value={user.message} onChange={(e) => setUser({...user, message: e.target.value})} fullWidth margin="normal" />
                   
-                  <Button onClick={onSignup}  disabled={buttonDisabled} sx={{maxWidth:'80%',height:'auto',background:'rgba(0, 36, 224, 1)',left:'5px',width:'100px',fontWeight:'1000', fontFamily:'Poppins,sans-serif',color:'#FFFFFF'}}>Submit</Button>
+                  <Button onClick={onSubmit}  disabled={buttonDisabled} sx={{maxWidth:'80%',height:'auto',background:'rgba(0, 36, 224, 1)',left:'5px',width:'100px',fontWeight:'1000', fontFamily:'Poppins,sans-serif',color:'#FFFFFF'}}>Submit</Button>
               </Box>
-            <Link href='/login' sx={{ position:'absolute', width:'90%',maxWidth:'100%', top:'580px', textAlign:'center'}}>Already Have An Account! Login </Link>
+              </Box>
            </CardContent>
          </Box>
         </Card>

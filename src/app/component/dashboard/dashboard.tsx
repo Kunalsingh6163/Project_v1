@@ -12,15 +12,17 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { Routes } from 'react-router-dom';
+import Contact from './Contact';
 
-
-
-const pages = ['Home', 'About', 'Content'];
+const pages = ['Home', 'About', 'Contact','Career'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function Appbar() {
+export default function Appbar() {
   const [user, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
 
   const handleOpenNavMenu = (event: any) => {
     setAnchorElNav(event.currentTarget);
@@ -37,13 +39,14 @@ function Appbar() {
     setAnchorElUser(null);
   };
 
+
   return (
-    <AppBar >
-      <Container maxWidth={false}>
+    <AppBar sx={{background:'#C1C1C1'}} elevation={0}>
+      <Container maxWidth={false}  >
         <Toolbar sx={{padding:'0'}}>
-        <Avatar alt="Logo" src="Logo.svg" sx={{ marginRight: 2, borderRadius:0 }} />
+        <Avatar alt="Logo" src="Logo.svg" sx={{ marginRight: 2, borderRadius:0, width:70, height:60}} />
           <Typography
-            variant="h6"
+            variant="h5"
             noWrap
             component="a"
             sx={{
@@ -81,8 +84,9 @@ function Appbar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={handleCloseNavMenu} > 
                   <Typography textAlign="center">{page}</Typography>
+
                 </MenuItem>
               ))}
             </Menu>
@@ -92,7 +96,7 @@ function Appbar() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{my:2 , color: 'white',display:'block', fontFamily:'Poppins', fontSize:18, fontWeight:"400",boxShadow:1 }}
               >
                 {page}
               </Button>
@@ -106,7 +110,7 @@ function Appbar() {
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: '45px', }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
@@ -133,4 +137,3 @@ function Appbar() {
     </AppBar>
   );
 }
-export default Appbar;

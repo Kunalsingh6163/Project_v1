@@ -4,8 +4,9 @@ import React, {useEffect} from "react";
 import {useRouter} from "next/navigation";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-
-
+import sushiImage from '../Assets/sushiImage.svg'
+import Image from "next/image";
+import { TextField } from "@mui/material";
 
 
 
@@ -44,10 +45,10 @@ export default function LoginPage() {
     }, [user]); 
 
     return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+
+    <main className='flex flex-col md:flex-row min-h-screen'>
         <h1>{loading ? "Processing" : "Login"}</h1>
         <hr/>
-    {/*left section*/}
     <section className='flex-1 flex items-center justify-center relative'>
    
     <div className='absolute bottom-30 left-400 hover:scale-150 ease-in-out'>
@@ -58,7 +59,7 @@ export default function LoginPage() {
          height={679}
          />
     </div>
-    <h1 className='text-1.5xl text-white font-bold transition-transform transform absolute top-5 left-50%'>
+    <h1 className='text-1.5xl text-blue-600 font-bold transition-transform transform absolute top-5 left-50%'>
         Welcome to Login Page
     </h1>
     
