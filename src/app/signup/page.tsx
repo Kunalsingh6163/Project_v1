@@ -8,7 +8,7 @@ import Image from 'next/image';
 import TextField from '@mui/material/TextField';
 import {IconButton,} from '@mui/material';
 import { Translate, Visibility,VisibilityOff } from '@mui/icons-material';
-
+import { Poppins } from "next/font/google";
 
 
 export default function SignupPage() {
@@ -60,7 +60,7 @@ export default function SignupPage() {
     return (
       <Grid container>
       <Grid item xs={12} sm={6}>
-        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100vh", marginTop:'5%' }}>
+        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "90vh", marginTop:'5%' }}>
           {loading && <Box>Loading...</Box>}
           <Image
             src="Logo.svg"
