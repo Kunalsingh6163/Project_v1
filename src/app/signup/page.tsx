@@ -3,12 +3,11 @@ import React, { useEffect } from "react";
 import {useRouter} from "next/navigation";
 import axios from 'axios'
 import { toast } from "react-hot-toast";
-import { Card, CardContent, Typography,Box, Button, Link } from '@mui/material';
+import { Typography,Box, Button, Link,Grid,Hidden } from '@mui/material';
 import Image from 'next/image';
 import TextField from '@mui/material/TextField';
 import {IconButton,} from '@mui/material';
-import { Visibility,VisibilityOff } from '@mui/icons-material';
-import Appbar from "../component/dashboard/Dashboard";
+import { Translate, Visibility,VisibilityOff } from '@mui/icons-material';
 
 
 
@@ -59,90 +58,63 @@ export default function SignupPage() {
 
 
     return (
-      
-      <Box>
-      <Appbar/>
-      {loading && <Box>Loading...</Box>}
-        <Box>
-        <Card
-        sx={{
-          position: 'absolute',
-          width: '100%',
-          maxWidth: '1191px', 
-          height: '70vh',
-          left: '50%',
-          top: '50%',
-          transform: 'translate(-50%, -50%)',
-          background: 'rgba(143, 228, 247)',
-          borderRadius: '50px',
-          '@media screen and (max-width: 720px)': {
-            width: '100%', 
-            height: '95vh',
-            borderRadius: '50px',
-          }
-        }}
-      >
-           
-        <Box> 
-          <CardContent>
-                            
-             <Image  style={{ position: 'absolute',height:"90%", left: '25%',maxWidth:'80%', transform: 'translateX(-50%)' }}
-               src="stall.svg"
-               alt="Picture of a stall"
-               width={543}
-               height={700}              
-               />
-            <Box sx={{
-                position: 'absolute',
-                fontFamily: 'poppins',
-                marginTop: '1%',
-                width: '110%',
-                maxWidth:'125%',
-                height: 'auto',
-                left:'50%',
-                textAlign:'center',
-                transform: 'translateX(-50%)',
-                
-                }} >
-              <Typography variant="h4" fontWeight="600" color="#0024E0">
-                Welcome To Foodies Counter
-              </Typography>
-            </Box>
-            
-
-            <Box sx={{  position: 'absolute', fontFamily: "Poppins,sans-serif",width:'100%', maxwidth: '100px', top: '100px', left: '70%', transform: 'translateX(-50%)',fontWeight:'500', textAlign:'center' }}>
-              <Typography variant="h5" fontWeight="600" color="#0024E0" >
-                Sign-Up Here!
-              </Typography>
-            </Box>
-            
-                  <Box sx={{ position: 'absolute', fontFamily: "Poppins,sans-serif",width:'40%', maxWidth: '600px', top: '120px', left: '70%', transform: 'translateX(-50%)',fontWeight:'500', textAlign:'center',}}>
-                  <TextField label="First Name" name='firstName' value={user.firstName} required onChange={(e) => setUser({...user, firstName: e.target.value})} fullWidth margin="normal"  />
-                  <TextField label="Last Name" name='lastName' value={user.lastName} required onChange={(e) => setUser({...user, lastName: e.target.value})} fullWidth margin="normal" />
-                  <TextField label="Email id" name='email' required type='email' value={user.email} onChange={(e) => setUser({...user, email: e.target.value})} fullWidth margin="normal"/>
-                  <TextField label="Mobile No" name='number' required type='number' value={user.mobileNo} onChange={(e) => setUser({...user, mobileNo: e.target.value})} fullWidth margin="normal" />
-                  
-                  <TextField label="Password" name='password' required 
-                  type={showPassword ? 'text' : 'password'}
-                  InputProps={{
-                    endAdornment: (
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                      >
-                        {showPassword ? <Visibility /> : <VisibilityOff />}
-                      </IconButton>
-                     ),
-                    }} value={user.password} onChange={(e) => setUser({...user, password: e.target.value})} fullWidth margin="normal" />
-                  
-                  <Button onClick={onSignup}  disabled={buttonDisabled} sx={{maxWidth:'80%',height:'auto',background:'rgba(0, 36, 224, 1)',left:'5px',width:'100px',fontWeight:'1000', fontFamily:'Poppins,sans-serif',color:'#FFFFFF'}}>Submit</Button>
-              </Box>
-            <Link href='/login' sx={{ position:'absolute', width:'90%',maxWidth:'100%', top:'580px', textAlign:'center'}}>Already Have An Account! Login </Link>
-           </CardContent>
-         </Box>
-        </Card>
+      <Grid container>
+      <Grid item xs={12} sm={6}>
+        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100vh", marginTop:'5%' }}>
+          {loading && <Box>Loading...</Box>}
+          <Image
+            src="Logo.svg"
+            alt="Company Logo"
+            width={80}
+            height={80}
+          />
+          <Typography variant="h4" fontWeight="600" color="#0024E0" textAlign="center">
+            Sign-Up Here
+          </Typography>
+          <Typography variant="h5" color="#0024E0" textAlign="center" fontFamily="Poppins">
+            Signup to continue Your Progress
+          </Typography>
+          <Box sx={{ width: "60%", margin: "0 auto" }}>
+            <TextField label="First Name" name="firstName" value={user.firstName} required onChange={(e) => setUser({ ...user, firstName: e.target.value })} fullWidth margin="normal" />
+            <TextField label="Last Name" name="lastName" value={user.lastName} required onChange={(e) => setUser({ ...user, lastName: e.target.value })} fullWidth margin="normal" />
+            <TextField label="Email id" name="email" required type="email" value={user.email} onChange={(e) => setUser({ ...user, email: e.target.value })} fullWidth margin="normal" />
+            <TextField label="Mobile No" name="number" required type="number" value={user.mobileNo} onChange={(e) => setUser({ ...user, mobileNo: e.target.value })} fullWidth margin="normal" />
+            <TextField
+              label="Password"
+              name="password"
+              required
+              type={showPassword ? "text" : "password"}
+              InputProps={{
+                endAdornment: (
+                  <IconButton aria-label="toggle password visibility" onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword}>
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                ),
+              }}
+              value={user.password}
+              onChange={(e) => setUser({ ...user, password: e.target.value })}
+              fullWidth
+              margin="normal"
+            />
+            <Button onClick={onSignup} disabled={buttonDisabled} sx={{ boxShadow: 1, maxWidth: "100%", height: "auto", backgroundColor: "#0024E0", width: "100%", fontWeight: "600", fontFamily: "Poppins,sans-serif", color: "#FFFFFF" }}>
+              Submit
+            </Button>
+          </Box>
+          <Link href="/login" sx={{ display: "block", textAlign: "center", marginTop: "10px" }}>
+            Already Have An Account! Login
+          </Link>
+          <Box sx={{ backgroundColor: "#f0f0f0", textAlign: "center", padding: "20px 0", marginTop: "13%" }}>
+            <Typography variant="body2" color="#555">
+              © 2009-2024 - inteMEgence Perk Solutions. All Rights Reserved. | Privacy Policy
+            </Typography>
+          </Box>
         </Box>
-        </Box>
+      </Grid>
+      <Hidden xsDown>
+        <Grid item xs={12} sm={6}>
+          <Image src="/Juliacameron.svg" alt="Pic of a kid learning" width={922} height={900} />
+        </Grid>
+      </Hidden>
+    </Grid>
 );
 }
