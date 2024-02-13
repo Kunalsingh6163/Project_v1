@@ -59,7 +59,12 @@ export default function SignupPage() {
 
     return (
       <Grid container>
-      <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }} >
+                  <Hidden xsDown>
+                  <Image src="/Juliacameron.svg" alt="Pic of a kid learning" width={922} height={900} />
+                 </Hidden>
+                  </Grid>
+      <Grid item xs={12} sm={6} order={{ xs: 2, sm: 1 }}>
         <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "90vh", marginTop:'5%' }}>
           {loading && <Box>Loading...</Box>}
           <Image
@@ -68,13 +73,14 @@ export default function SignupPage() {
             width={80}
             height={80}
           />
+
           <Typography variant="h4" fontWeight="600" color="#0024E0" textAlign="center">
             Sign-Up Here
           </Typography>
           <Typography variant="h5" color="#0024E0" textAlign="center" fontFamily="Poppins">
             Signup to continue Your Progress
           </Typography>
-          <Box sx={{ width: "60%", margin: "0 auto" }}>
+          <Box sx={{ width: "70%", margin: "0 auto" }}>
             <TextField label="First Name" name="firstName" value={user.firstName} required onChange={(e) => setUser({ ...user, firstName: e.target.value })} fullWidth margin="normal" />
             <TextField label="Last Name" name="lastName" value={user.lastName} required onChange={(e) => setUser({ ...user, lastName: e.target.value })} fullWidth margin="normal" />
             <TextField label="Email id" name="email" required type="email" value={user.email} onChange={(e) => setUser({ ...user, email: e.target.value })} fullWidth margin="normal" />
@@ -110,11 +116,7 @@ export default function SignupPage() {
           </Box>
         </Box>
       </Grid>
-      <Hidden xsDown>
-        <Grid item xs={12} sm={6}>
-          <Image src="/Juliacameron.svg" alt="Pic of a kid learning" width={922} height={900} />
-        </Grid>
-      </Hidden>
     </Grid>
+    
 );
 }
