@@ -38,12 +38,12 @@ function Appbar() {
   };
 
   return (
-    <AppBar >
-      <Container maxWidth={false}>
+    <AppBar sx={{background:'#C1C1C1'}} elevation={0}>
+      <Container maxWidth={false}  >
         <Toolbar sx={{padding:'0'}}>
         <Avatar alt="Logo" src="Logo.svg" sx={{ marginRight: 2, borderRadius:0 }} />
           <Typography
-            variant="h6"
+            variant="h5"
             noWrap
             component="a"
             sx={{
@@ -57,7 +57,7 @@ function Appbar() {
             InteMEgencePerk
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 2, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               onClick={handleOpenNavMenu}>
               <MenuIcon />
@@ -82,12 +82,11 @@ function Appbar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 2, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}

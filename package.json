@@ -11,11 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
-<<<<<<< HEAD
-=======
     "@mui/icons-material": "^5.15.7",
->>>>>>> a3e1c7873ef2ca5782f28096fdd6242b8e524314
-    "@mui/material": "^5.15.7",
     "@types/node": "20.3.2",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",

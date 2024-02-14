@@ -8,7 +8,7 @@ import Image from 'next/image';
 import TextField from '@mui/material/TextField';
 import {IconButton,} from '@mui/material';
 import { Visibility,VisibilityOff } from '@mui/icons-material';
-
+import Appbar from "../component/dashboard/dashboard";
 
 
 
@@ -59,6 +59,7 @@ export default function SignupPage() {
 
     return (
         <Box>
+          <Appbar></Appbar>
         <Card
         sx={{
           position: 'absolute',
