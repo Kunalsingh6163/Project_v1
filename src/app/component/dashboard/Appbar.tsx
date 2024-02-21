@@ -15,39 +15,38 @@ import MenuItem from '@mui/material/MenuItem';
 
 
 const pages = ['Home','Case Study', 'About Us','Career','Contact'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export default function Appbar() {
   const [user, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
 
   const handleOpenNavMenu = (event: any) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: any) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
 
   return (
-    <AppBar sx={{background:"linear-gradient(to bottom,#77E7FF,#87D3F333)"}} elevation={0}>
-      <Container maxWidth={false}  >
-        <Toolbar sx={{padding:'0'}}>
-        <Avatar alt="Logo" src="Logo.svg" sx={{ marginRight: 2, borderRadius:0, width:75, height:75}} />
+    <AppBar sx={{background:"linear-gradient(to bottom,#77E7FF,#87D3F333)"}} elevation={0}  >
+      <Container maxWidth={false} >
+        <Toolbar sx={{padding:'0', justifyContent:'space-between'}}>
+        <Avatar alt="Logo" src="Logo.svg"            
+        sx={{ 
+                marginRight: 2, 
+                borderRadius: 0, 
+                width: ['60px', '75px'], 
+                height: ['60px', '75px'], 
+                display: ['block', 'block'] 
+            }}  />
           <Typography
             variant="h5"
             noWrap
             component="a"
             sx={{
+              display: { xs: 'none', sm: 'block'},
               mr: 2,              
               fontFamily: 'Poppins,Sans-serif',
               fontWeight: 700,
@@ -60,9 +59,9 @@ export default function Appbar() {
             <span style={{ color: '#21EA00' }}>gencePerk</span>
           </Typography>
             
-            <Box sx={{flexGrow:1}}/>
+            <Box sx={{flexGrow:1 }}/>
           <Box sx={{flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
+            <IconButton sx={{left:'70%'}}
               onClick={handleOpenNavMenu}>
               <MenuIcon />
             </IconButton>
@@ -97,7 +96,7 @@ export default function Appbar() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{my:2 , color: '#747474',display:'block', fontFamily:'Poppins,Sans-serif', fontSize:18, fontWeight:"400",boxShadow:1 }}
+                sx={{my:2 , color: '#747474',display:'block', fontFamily:'Poppins,Sans-serif', fontSize:18, fontWeight:"400", textTransform:'none' }}
               >
                 {page}
               </Button>

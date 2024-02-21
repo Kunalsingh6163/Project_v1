@@ -10,6 +10,7 @@ import { IconButton } from '@mui/material';
 import { Apple, Facebook, Google, LinkedIn, Translate, Twitter, Visibility, VisibilityOff } from '@mui/icons-material';
 import { Poppins } from "next/font/google";
 import {Fade} from '@mui/material'
+import Black from '@mui/icons-material'
 
 export default function LoginPage() {
     const router = useRouter();
@@ -21,8 +22,6 @@ export default function LoginPage() {
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] =React.useState(false);
     const [passwordValid, setPasswordValid] = React.useState(true); 
-    const [imageHovered, setImageHovered] = useState(false); 
-    const [showWelcome, setShowWelcome] = useState(false); 
     const validatePassword = (password:any) => {
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d.*\d)[^\s]{8,100}$/;
         return passwordRegex.test(password);
@@ -67,16 +66,12 @@ export default function LoginPage() {
     };
     
     return (
-      
-
         <Grid container>
-            <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }} sx={{
-    
-}}>
-    <Hidden xsDown>
-        <Image src="/Juliacameron.svg" alt="learning" width={1400} height={1255} layout="responsive"/>
-    </Hidden>
-</Grid>
+            <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }}>
+            <Hidden xsDown>
+                <Image src="/Juliacameron.svg" alt="learning" width={1400} height={1255} layout="responsive"/>
+            </Hidden>
+            </Grid>
 
             <Grid item xs={12} sm={6} order={{ xs: 2, sm: 1 }}>
                 <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "90vh",marginTop:'70px' }}>
@@ -94,29 +89,27 @@ export default function LoginPage() {
             <span style={{ color: '#CD0606' }}>ME</span>
             <span style={{ color: '#21EA00' }}>gencePerk</span>
           </Typography>
-                    
-                    <Fade in={!showWelcome} timeout={1000}>
-                    
+                                        
                     <Typography 
                         variant="h4" 
                         fontWeight="600" 
                         color="#0024E0" 
                         textAlign="center"
+                        fontFamily="Poppins,Sans-serif"
                     >
                         Welcome back !
                     </Typography>
-                </Fade>
-                 <Fade in={!showWelcome} timeout={1300}>
-                 <Typography variant="h5" color="#0024E0" textAlign="center" fontFamily="Poppins">
+                 <Typography variant="h5" color="#0024E0" textAlign="center" fontFamily="Poppins,Sans-serif">
                  Log in to proceed with your learning
                     </Typography>
-                    </Fade>
                     
                     <Box sx={{ width: "60%", margin: "0 auto" }}>
                         <TextField
+                        placeholder="Email Id"
                             label="Email id"
                             name="email"
                             required
+                            focused
                             type="email"
                             value={user.email}
                             onChange={(e) => setUser({ ...user, email: e.target.value })}
@@ -124,8 +117,11 @@ export default function LoginPage() {
                             margin="normal"
                         />
                         <TextField
+                        sx={{height:'45px'}}
+                        placeholder="Password"
                             label="Password"
                             name="password"
+                            focused
                             required
                             type={showPassword ? "text" : "password"}
                             InputProps={{
@@ -142,52 +138,45 @@ export default function LoginPage() {
                             error={!passwordValid}
                             helperText={!passwordValid && "Password must be 8-100 characters long, contain at least one uppercase letter, one lowercase letter, and at least two digits. It should not contain spaces and blacklist specific values."}
                         />
-                        <h5 style={{ textAlign: 'end', color: 'rgba(0, 36, 224, 1)' }}>forgot password</h5>
-                        <Button onClick={onLogin} disabled={buttonDisabled} sx={{ boxShadow: 1, maxWidth: "100%", height: "auto", backgroundColor: "#0024E0", width: "100%", fontWeight: "600", fontFamily: "Poppins,sans-serif", color: "#FFFFFF" }}>
-              Submit
-            </Button>
-            </Box>
-            <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+            <Button variant="contained" onClick={onLogin} disabled={buttonDisabled} sx={{ boxShadow: 1, maxWidth: "100%", height: "auto", width: "100%", fontWeight: "800", fontFamily: "Poppins,Sans-serif", color:'white' }}>
+                    Submit
+                </Button>
+                        <Typography  sx={{ textAlign:'end', color: 'rgba(0, 36, 224, 1)' }}><Link sx={{cursor:'pointer'}}> forgot password</Link></Typography>
 
-                    <Typography variant="h6" align="center" marginTop={1} sx={{color:'blue'}}>or login with</Typography>
-                    <Grid spacing={2} container  columns={16} >
-                    <Grid item xs={8}>
-                    <Button startIcon={<Google />}  variant='contained' sx={{background:'#FF3E30', '&:hover': {background:'#FF3E30'}}}>
-                     Google
+              <Typography variant="h6" align="center" marginTop={1} sx={{color:'blue'}}>or login with</Typography>
+            <Grid container sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
+                <Button startIcon={<Google />} variant='contained' sx={{ background: '#FF3E30', '&:hover': { background: '#FF3E30' },textTransform:'none', width:200, borderRadius:'5px', height:41 }}>
+                    Google
+                </Button>
+                <Button startIcon={<Facebook />} variant='contained' sx={{ background: '#316FF6', '&:hover': { background: '#316FF6' },textTransform:'none' , width:200, borderRadius:'5px', height:41}}>
+                    Facebook
                 </Button>
                 </Grid>
-                <Grid item xs={8}>
-                <Button startIcon={<Facebook />}  variant='contained' sx={{background:"#316FF6", '&:hover': {background:"#316FF6"}}}>
-                    Facebook
-                </Button> 
-                </Grid>
-                    </Grid>
-
-                    <Grid spacing={2} marginTop={2} container columns={16} >
-                <Grid item xs={8}>
-                    <Button startIcon={<Twitter />}  variant='contained' sx={{background:"#0077B5", '&:hover': {background:"#0077B5"}}}>
+                <Grid container sx={{ alignItems: 'center', justifyContent: 'space-between', marginTop:2 }}>
+                    <Button startIcon={<Twitter />}  variant='contained' sx={{background:"#0077B5", '&:hover': {background:"#0077B5"},textTransform:'none', width:200,  borderRadius:'5px', height:41}}>
                     Twitter
                 </Button>
-                </Grid>
-                <Grid sx={{width:'100%'}}item xs={8}>
 
-                <Button startIcon={<LinkedIn /> } variant='contained' sx={{background:"#000000", '&:hover': {background:"#000000"}}}>
+                <Button startIcon={<LinkedIn /> } variant='contained' sx={{background:"#000000", '&:hover': {background:"#000000"},textTransform:'none', width:200,  borderRadius:'5px', height:41}}>
                      LinkedIn
                 </Button>
                 </Grid>
-                </Grid>
-                    </Box>
-                    <Link href="/signup" sx={{ display: "block", textAlign: "center", marginTop: "20px", "& .MuiTypography-root": { fontWeight: 'bold' } }}>
-                        Not an Account? signup
+                <Box sx={{ display: "block", textAlign: "center", marginTop: "20px",}}>
+                    Don't have an Account ?{" "}
+                 <Link href="/signup" sx={{ "& .MuiTypography-root": { fontWeight: 'bold' } }}>
+                         Sign Up
                     </Link>
+                    </Box>
+                            </Box>
 
                     <Box sx={{ backgroundColor: "#f0f0f0", textAlign: "center", padding: "10px 0", marginTop: "20%" }}>
                         <Typography variant="body2" color="#555">
                             © 2009-2024 - inteMEgence Perk Solutions. All Rights Reserved. | Privacy Policy
                         </Typography>
+                    </Box>                   
                     </Box>
-                </Box>
+                </Grid>
             </Grid>
-        </Grid>
+
     );
 }

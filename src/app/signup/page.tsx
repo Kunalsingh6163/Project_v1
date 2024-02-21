@@ -113,14 +113,14 @@ export default function SignupPage() {
     return (
       <Grid container>
                   {loading && <Box>Loading...</Box>}
-                  <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }} >
+                  <Grid  item xs={12} sm={6} order={{ xs: 1, sm: 2 }} >
                   <Hidden xsDown>
                   <Image src="/Juliacameron.svg" alt="Pic of a kid learning" width={922} height={900} layout="responsive" 
                   />
                  </Hidden>
                   </Grid>
       <Grid display={'flex'} flexDirection="column" item xs={12} sm={6} order={{ xs: 2, sm: 1 }}>
-        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "90vh", marginTop:'5%' }}>
+        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "80vh", marginTop:'15%' }}>
           <Typography
             variant="h4"
             textAlign="center"
@@ -135,16 +135,19 @@ export default function SignupPage() {
             <span style={{ color: '#21EA00' }}>gencePerk</span>
           </Typography>
 
-          <Typography marginTop={'20px'} variant="h5" fontWeight="600" color="#0024E0" textAlign="center" sx={{fontFamily:"Poppins, Sans-serif"}}>
+          <Typography marginTop={'13px'} variant="h5" fontWeight="600" color="#0024E0" textAlign="center" sx={{fontFamily:"Poppins, Sans-serif"}}>
             Sign-Up Here
           </Typography>
           <Typography variant="h6" color="#0024E0" textAlign="center" >
             Signup to continue Your Progress
           </Typography>
           <Grid sx={{ width: "70%"}}>
-            <TextField  label="Name" name="Name" value={user.Name} required onChange={(e) => setUser({ ...user, Name: e.target.value })} fullWidth margin="normal" error={!!nameError} helperText={nameError}/>
-            <TextField label="Email id" name="email" required type="email" value={user.email} onChange={(e) => setUser({ ...user, email: e.target.value })} fullWidth margin="normal" error={!!emailError} helperText={emailError}/>
+            <TextField sx={{height:'45px',borderRadius:'5px' }} label="Name" color="primary" placeholder="Name"focused name="Name" value={user.Name} required onChange={(e) => setUser({ ...user, Name: e.target.value })} fullWidth margin="normal" error={!!nameError} helperText={nameError}/>
+            <TextField sx={{height:'45px',borderRadius:'5px'}} label="Email id" focused placeholder="Email Id" name="email" required type="email" value={user.email} onChange={(e) => setUser({ ...user, email: e.target.value })} fullWidth margin="normal" error={!!emailError} helperText={emailError}/>
             <TextField
+            focused
+            sx={{height:'45px',borderRadius:'5px'}}
+            placeholder="Password"
               label="Password"
               name="password"
               required
@@ -163,35 +166,35 @@ export default function SignupPage() {
               error={!!passwordError}
               helperText={passwordError}
             />
-            <Button variant="contained" onClick={onSignup} disabled={buttonDisabled} sx={{ boxShadow: 1, maxWidth: "100%", height: "auto", width: "100%", fontWeight: "800", fontFamily: "Poppins,Sans-serif", color:'white' }}>
+            <Button variant="contained" onClick={onSignup} disabled={buttonDisabled} sx={{marginTop:'15px' ,boxShadow: 1, maxWidth: "100%", height: "auto", width: "100%", fontWeight: "800", fontFamily: "Poppins,Sans-serif", color:'white' }}>
               Submit
             </Button>
             <Box marginTop="5px" sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
             <Typography variant="h6" align="center" sx={{color:'blue'}}>or sign up with</Typography>
-            <Box marginTop={"10px"} display={"flex"} flexDirection={"column"} gap={"5px"} sx={{width:'100%'}}>
-                <Button startIcon={<Google />}  variant='contained' sx={{background:'#FF3E30', '&:hover': {background:'#FF3E30'}}}>
+            <Box marginTop={"10px"} display={"flex"} flexDirection={"column"} gap={"15px"} sx={{width:'100%'}}>
+                <Button startIcon={<Google />}  variant='contained' sx={{height:41, fontSize:16, fontWeight:400, textTransform:'none',borderRadius:'5px', background:'#FF3E30', '&:hover': {background:'#FF3E30'}}}>
                     Sign in with Google
                 </Button>
-                <Button startIcon={<Facebook />}  variant='contained' sx={{background:"#316FF6", '&:hover': {background:"#316FF6"}}}>
+                <Button startIcon={<Facebook />}  variant='contained' sx={{height:41, fontSize:16, fontWeight:400, textTransform:'none',borderRadius:'5px',background:"#316FF6", '&:hover': {background:"#316FF6"}}}>
                      Sign in with Facebook
                 </Button>
-                <Button startIcon={<Twitter />}  variant='contained' sx={{background:"#0077B5", '&:hover': {background:"#0077B5"}}}>
+                <Button startIcon={<Twitter />}  variant='contained' sx={{height:41, fontSize:16, fontWeight:400, textTransform:'none',borderRadius:'5px',background:"#0077B5", '&:hover': {background:"#0077B5"}}}>
                      Sign in with Twitter
                 </Button>
-                <Button startIcon={<LinkedIn /> } variant='contained' sx={{background:"#000000", '&:hover': {background:"#000000"}}}>
+                <Button startIcon={<LinkedIn /> } variant='contained' sx={{height:41, fontSize:16, fontWeight:400, textTransform:'none',borderRadius:'5px',background:"#000000", '&:hover': {background:"#000000"}}}>
                     Sign in with LinkedIn
                 </Button>
             </Box>
 
             </Box>
           </Grid>
-          <Box sx={{ display: "block", textAlign: "center", marginTop: "10px" }}>
+          <Box sx={{ display: "block", textAlign: "center", marginTop: "8px" }}>
             Already Have An Account! {""}
             <Link href="/login" underline="hover">
               Login
             </Link>
           </Box>
-          <Box  sx={{ backgroundColor: "#f0f0f0", textAlign: "center", padding: "15px 0", marginTop: "13%" }}>
+          <Box  sx={{ backgroundColor: "#f0f0f0", textAlign: "center", padding: "15px 0", marginTop: "5%" }}>
             <Typography variant="body2" color="#555">
               © 2009-2024 - inteMEgence Perk Solutions. All Rights Reserved. | <span style={{textDecorationLine:'underline'}}>Privacy Policy</span>
             </Typography>
