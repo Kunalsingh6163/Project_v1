@@ -120,28 +120,18 @@ export default function SignupPage() {
                  </Hidden>
                   </Grid>
       <Grid display={'flex'} flexDirection="column" item xs={12} sm={6} order={{ xs: 2, sm: 1 }}>
-        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "80vh", marginTop:'15%' }}>
-          <Typography
-            variant="h4"
-            textAlign="center"
-            component="a"
-            sx={{
-              fontFamily: 'Poppins,Sans-serif',
-              fontWeight: 700,
-            }}
-          >
-            <span style={{ color: '#FC6F6F' }}>inte</span>
-            <span style={{ color: '#CD0606' }}>ME</span>
-            <span style={{ color: '#21EA00' }}>gencePerk</span>
-          </Typography>
+        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "80vh", marginTop:'5%' }}>
+                  <Box>
+                        <Image src="/Logo.svg" alt="Logo" width={250} height={250} />
+                    </Box>
 
-          <Typography marginTop={'13px'} variant="h5" fontWeight="600" color="#0024E0" textAlign="center" sx={{fontFamily:"Poppins, Sans-serif"}}>
+          <Typography  variant="h5" fontWeight="600" color="#0024E0" textAlign="center" sx={{fontFamily:"Poppins, Sans-serif"}}>
             Sign-Up Here
           </Typography>
           <Typography variant="h6" color="#0024E0" textAlign="center" >
             Signup to continue Your Progress
           </Typography>
-          <Grid sx={{ width: "70%"}}>
+          <Grid sx={{ width: "60%"}}>
             <TextField sx={{height:'45px',borderRadius:'5px' }} label="Name" color="primary" placeholder="Name"focused name="Name" value={user.Name} required onChange={(e) => setUser({ ...user, Name: e.target.value })} fullWidth margin="normal" error={!!nameError} helperText={nameError}/>
             <TextField sx={{height:'45px',borderRadius:'5px'}} label="Email id" focused placeholder="Email Id" name="email" required type="email" value={user.email} onChange={(e) => setUser({ ...user, email: e.target.value })} fullWidth margin="normal" error={!!emailError} helperText={emailError}/>
             <TextField
