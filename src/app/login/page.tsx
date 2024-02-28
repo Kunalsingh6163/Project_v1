@@ -69,26 +69,16 @@ export default function LoginPage() {
         <Grid container>
             <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }}>
             <Hidden xsDown>
-                <Image src="/Juliacameron.svg" alt="learning" width={1400} height={1255} layout="responsive"/>
+                <Image  src="/Juliacameron.svg" alt="learning" width={1400} height={1255} layout="responsive"/>
             </Hidden>
             </Grid>
 
             <Grid item xs={12} sm={6} order={{ xs: 2, sm: 1 }}>
-                <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "90vh",marginTop:'70px' }}>
+                <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "90vh",marginTop:'5px' }}>
                     {loading && <Box>Loading...</Box>}
-                    <Typography
-            variant="h4"
-            textAlign="center"
-            component="a"
-            sx={{
-              fontFamily: 'Poppins,Sans-serif',
-              fontWeight: 700,
-            }}
-          >
-            <span style={{ color: '#FC6F6F' }}>inte</span>
-            <span style={{ color: '#CD0606' }}>ME</span>
-            <span style={{ color: '#21EA00' }}>gencePerk</span>
-          </Typography>
+                    <Box>
+                        <Image src="/Logo.svg" alt="Logo" width={250} height={250} />
+                    </Box>
                                         
                     <Typography 
                         variant="h4" 
@@ -138,26 +128,26 @@ export default function LoginPage() {
                             error={!passwordValid}
                             helperText={!passwordValid && "Password must be 8-100 characters long, contain at least one uppercase letter, one lowercase letter, and at least two digits. It should not contain spaces and blacklist specific values."}
                         />
-            <Button variant="contained" onClick={onLogin} disabled={buttonDisabled} sx={{ boxShadow: 1, maxWidth: "100%", height: "auto", width: "100%", fontWeight: "800", fontFamily: "Poppins,Sans-serif", color:'white' }}>
+            <Button variant="contained" onClick={onLogin} disabled={buttonDisabled} sx={{ boxShadow: 1, maxWidth: "100%", height: "auto", width: "100%", fontWeight: "600", fontFamily: "Poppins,Sans-serif", color:'white',marginTop:'15px' }}>
                     Submit
                 </Button>
                         <Typography  sx={{ textAlign:'end', color: 'rgba(0, 36, 224, 1)' }}><Link sx={{cursor:'pointer'}}> forgot password</Link></Typography>
 
               <Typography variant="h6" align="center" marginTop={1} sx={{color:'blue'}}>or login with</Typography>
             <Grid container sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
-                <Button startIcon={<Google />} variant='contained' sx={{ background: '#FF3E30', '&:hover': { background: '#FF3E30' },textTransform:'none', width:200, borderRadius:'5px', height:41 }}>
+                <Button startIcon={<Google />} variant='contained' sx={{ background: '#FF3E30', '&:hover': { background: '#FF3E30' },textTransform:'none', width:200, borderRadius:'5px', height:41, }}>
                     Google
                 </Button>
-                <Button startIcon={<Facebook />} variant='contained' sx={{ background: '#316FF6', '&:hover': { background: '#316FF6' },textTransform:'none' , width:200, borderRadius:'5px', height:41}}>
+                <Button startIcon={<Facebook />} variant='contained' sx={{ background: '#316FF6', '&:hover': { background: '#316FF6' },textTransform:'none' , width:200, borderRadius:'5px', height:41 ,marginTop:{xs:1,lg:0}}}>
                     Facebook
                 </Button>
                 </Grid>
-                <Grid container sx={{ alignItems: 'center', justifyContent: 'space-between', marginTop:2 }}>
+                <Grid container sx={{ alignItems: 'center', justifyContent: 'space-between', marginTop:{xs:1,lg:2} }}>
                     <Button startIcon={<Twitter />}  variant='contained' sx={{background:"#0077B5", '&:hover': {background:"#0077B5"},textTransform:'none', width:200,  borderRadius:'5px', height:41}}>
                     Twitter
                 </Button>
 
-                <Button startIcon={<LinkedIn /> } variant='contained' sx={{background:"#000000", '&:hover': {background:"#000000"},textTransform:'none', width:200,  borderRadius:'5px', height:41}}>
+                <Button startIcon={<LinkedIn /> } variant='contained' sx={{background:"#000000", '&:hover': {background:"#000000"},textTransform:'none', width:200,  borderRadius:'5px', height:41,marginTop:{xs:1,lg:0}}}>
                      LinkedIn
                 </Button>
                 </Grid>
@@ -169,7 +159,7 @@ export default function LoginPage() {
                     </Box>
                             </Box>
 
-                    <Box sx={{ backgroundColor: "#f0f0f0", textAlign: "center", padding: "10px 0", marginTop: "20%" }}>
+                    <Box sx={{ backgroundColor: "#f0f0f0", textAlign: "center", padding: "10px 0", marginTop: "5%" }}>
                         <Typography variant="body2" color="#555">
                             © 2009-2024 - inteMEgence Perk Solutions. All Rights Reserved. | Privacy Policy
                         </Typography>
