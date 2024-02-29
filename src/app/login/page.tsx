@@ -1,25 +1,19 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import axios from "axios";
-import { toast } from "react-hot-toast";
-import { Typography, Box, Button, Link, Grid, Hidden } from "@mui/material";
-import Image from "next/image";
-import TextField from "@mui/material/TextField";
-import { IconButton } from "@mui/material";
-import {
-  Apple,
-  Facebook,
-  Google,
-  LinkedIn,
-  Translate,
-  Twitter,
-  Visibility,
-  VisibilityOff,
-} from "@mui/icons-material";
+"use client"
+import React, { useEffect,useState} from "react";
+import {useRouter} from "next/navigation";
+import axios from 'axios'
+import toast,{Toaster} from 'react-hot-toast';
+import { Typography, Box, Button, Link, Grid, Hidden } from '@mui/material';
+import Image from 'next/image';
+import TextField from '@mui/material/TextField';
+import { IconButton } from '@mui/material';
+import { Apple, Facebook, Google, LinkedIn, Translate, Twitter, Visibility, VisibilityOff } from '@mui/icons-material';
 import { Poppins } from "next/font/google";
-import { Fade } from "@mui/material";
-import Black from "@mui/icons-material";
+import {Fade} from '@mui/material'
+import Black from '@mui/icons-material'
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -36,12 +30,15 @@ export default function LoginPage() {
     return passwordRegex.test(password);
   };
 
-  const handlePasswordChange = (e: any) => {
-    const newPassword = e.target.value;
-    setUser({ ...user, password: newPassword });
-    setPasswordValid(validatePassword(newPassword));
-    setButtonDisabled(newPassword === "");
-  };
+    
+
+    const handlePasswordChange = (e:any) => {
+        const newPassword = e.target.value;
+        setUser({ ...user, password: newPassword });
+        setPasswordValid(validatePassword(newPassword));
+        setButtonDisabled(newPassword === '');
+    
+    };
 
   const onLogin = async () => {
     try {
@@ -246,6 +243,34 @@ export default function LoginPage() {
               >
                 Twitter
               </Button>
+    const handleMouseDownPassword = (event:any) => {
+        event.preventDefault();
+    };
+    
+    
+    const settings = {
+          dots: true,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 1500,
+        };
+     
+
+    return (
+        <Grid container>
+            <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }}>
+            <Hidden xsDown>
+            <Slider {...settings}>
+                <Image src="/Juliacameron.svg" alt="learning" width={1400} height={1255} layout="responsive"/>
+                <Image src="/Juliacameron.svg" alt="learning" width={1400} height={1255} layout="responsive"/>
+                <Image src="/Juliacameron.svg" alt="learning" width={1400} height={1255} layout="responsive"/>
+            </Slider>
+            </Hidden>
+            </Grid>
+            
 
               <Button
                 startIcon={<LinkedIn />}
