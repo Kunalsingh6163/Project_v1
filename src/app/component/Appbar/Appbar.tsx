@@ -97,9 +97,8 @@ export default function Appbar() {
             />
           </Box>
 
-          <Box sx={{ flexGrow: 1 }} />
 
-          <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' }, gap: 2 }}>
+          <Box sx={{  display: { xs: 'none', md: 'flex' }, gap: 2 }}>
   {pages.map((page) => (
     <Button
       key={page}

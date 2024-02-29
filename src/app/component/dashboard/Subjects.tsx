@@ -11,8 +11,8 @@ function Subjects() {
   ];
 
   return (
-    <Box marginTop={'50px'}>
-      <Box position={'absolute'} sx={{ left: { xs: '25px', md: '104px' }, alignContent: 'center' }} >
+    <Box position={{xs:'relative',md:'absolute'}} marginTop={'100px'}>
+      <Box position={{xs:'relative',md:'absolute'}} sx={{ left: { xs: '25px', md: '104px' }, alignContent: 'center' }} >
         <OutlinedInput
           sx={{ width: '256px', height: '37px', marginRight: '20px' ,boxShadow:5,borderRadius:'10px'}}
           placeholder='Search'
@@ -28,7 +28,7 @@ function Subjects() {
         <Chip label="Sort by" clickable color="primary" variant="filled" sx={{borderRadius:'20px', width: '89px', height: "29px", marginTop: { xs: 2, md: 0 } }} />
 
       </Box>
-      <Box position={'absolute'} marginTop={'100px'} marginRight={'700px'}>
+      <Box  marginTop={'100px'} marginRight={'700px'}>
         <Grid container spacing={2} sx={{ paddingLeft: { xs: '10px', md: '104px' } }}>
           {subjects.map((subject, index) => (
             <Grid item xs={12} sm={12} md={6} key={index}>
@@ -43,7 +43,7 @@ function Subjects() {
                     <Typography  sx={{fontSize:{xs:'18px',md:'24px'},fontWeight:'700', marginLeft: '12px',marginTop:'30px', whiteSpace: 'pre-line',fontFamily:'Poppins,Sans-serif' }} component="div">{subject.title5}</Typography>
                   </Box>
                   <Box>
-                    <Button variant='contained'  sx={{textTransform:'none',left:'60%',width:'182px'}}>Continue<Avatar src='/arrowforward.svg' alt='Forward' sx={{width:"20px",height:"20px",left:"10px", backgroundColor:'white'}}/></Button>
+                    <Button variant='contained'  sx={{textTransform:'none',left:{xs:'40%',md:'60%'},width:'182px'}}>Continue<Avatar src='/arrowforward.svg' alt='Forward' sx={{width:"20px",height:"20px",left:"10px", backgroundColor:'white'}}/></Button>
                   </Box>
                   <Box mt={2}>
                     <Slider defaultValue={0} aria-label="Progress" valueLabelDisplay='auto' />

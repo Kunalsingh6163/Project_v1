@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Adverstisment(){
   return(
 <Box>
-  <Card position={'absolute'} sx={{width:"378px", height:"291px", backgroundColor:"#F0F0F0" ,backgroundRadius:"10px"}}> 
+  <Card position={'relative'} style={{width:"378px", height:"291px", backgroundColor:"#F0F0F0" ,borderRadius:'10px'}}> 
 <Card sx={{height:"252px", width:"334px", marginTop:"20px", marginLeft:"20px" , borderRadius:"5px"}}>
   <CardContent>
   <Grid display={'flex'}>
@@ -27,7 +27,7 @@ export default function Adverstisment(){
                  </Typography>
                  
               </Box>
-              <Button  variant="contained" sx={{textTransform:"none", backgroundColor:"#000AF0", color:"white", left:"135px", marginTop:"15px"}}><Image src={'/confetti.svg'} width={20} height={20} style={{marginRight:'5px'}}/>Refer your Peer</Button>
+              <Button  variant="contained" sx={{textTransform:"none", backgroundColor:"#000AF0", color:"white", left:"135px", marginTop:"15px"}}><Image src={'/confetti.svg'} alt="logo" width={20} height={20} style={{marginRight:'5px'}}/>Refer your Peer</Button>
   </CardContent>
 </Card>
   </Card>
