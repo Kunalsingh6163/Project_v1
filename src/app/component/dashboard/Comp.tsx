@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Mainpage() {
+function Comp() {
   return (
     <div>
-      <h2>heloo</h2>
+        <h1>hello</h1>
     </div>
   )
 }
 
-export default Mainpage
+export default Comp

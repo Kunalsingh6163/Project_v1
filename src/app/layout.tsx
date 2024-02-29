@@ -12,18 +12,15 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const pathName = usePathname(); // Correctly use the usePathname hook
-
-  // Correct the conditional checks for rendering Appbar and Footer
-  // You need to ensure that the pathname does not equal '/login' or '/signup'
-  // The previous condition was not correctly formed and would always evaluate to true due to a misunderstanding of logical operators
+  const pathName = usePathname();
+  
   const shouldShowHeaderAndFooter = pathName !== "/login" && pathName !== "/signup";
 
   return (
     <html lang="en">
       <body className={inter.className}>
         {shouldShowHeaderAndFooter && <Appbar />}
-        {children}
+          {children}
         {shouldShowHeaderAndFooter && <Footer />}
       </body>
     </html>
