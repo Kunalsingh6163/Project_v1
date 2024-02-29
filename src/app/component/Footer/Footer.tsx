@@ -4,13 +4,12 @@ import Image from 'next/image';
 
 function Footer() {
   return (
-    <Container maxWidth={false} sx={{marginTop:'100px', backgroundColor: 'black', color: 'white', py: 4 ,height:{xs:'800px',lg:'250px'}}}>
+    <Box  width={1530} sx={{marginTop:'100px', backgroundColor: 'black', color: 'white', py: 4 ,height:{xs:'800px',lg:'250px'}}}>
       <Grid container justifyContent="space-between" alignItems="flex-start">
         <Grid item xs={12} md={4} display="flex" flexDirection="column" alignItems="center">
           <Box mb={2}>
             <Image src="/Logo.svg" alt="Logo" width={150} height={150} />
-          </Box>
-          
+          </Box>      
         </Grid>
         <Grid item xs={12} md={2}>
           <Typography variant="h6" fontWeight="700">Company</Typography>
@@ -47,11 +46,11 @@ function Footer() {
             Get the iOS app
           </Button>
         </Grid>
-        <Grid marginTop={3} item xs={12} sx={{ textAlign: 'center',fontSize:'20px' }}>
+        <Grid marginTop={2} item xs={12} sx={{ textAlign: 'center',fontSize:'20px' }}>
             Terms of use &nbsp; · &nbsp; Privacy Policy &nbsp; · &nbsp; Refund Policy &nbsp; · &nbsp; Free Trial Policy
         </Grid>
       </Grid>
-    </Container>
+    </Box>
   );
 }
 
