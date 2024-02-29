@@ -2,7 +2,7 @@
 import React, { useEffect,useState} from "react";
 import {useRouter} from "next/navigation";
 import axios from 'axios'
-import { toast } from "react-hot-toast";
+import toast,{Toaster} from 'react-hot-toast';
 import { Typography, Box, Button, Link, Grid, Hidden } from '@mui/material';
 import Image from 'next/image';
 import TextField from '@mui/material/TextField';
@@ -11,6 +11,9 @@ import { Apple, Facebook, Google, LinkedIn, Translate, Twitter, Visibility, Visi
 import { Poppins } from "next/font/google";
 import {Fade} from '@mui/material'
 import Black from '@mui/icons-material'
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 export default function LoginPage() {
     const router = useRouter();
@@ -26,6 +29,8 @@ export default function LoginPage() {
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d.*\d)[^\s]{8,100}$/;
         return passwordRegex.test(password);
     };
+
+    
 
     const handlePasswordChange = (e:any) => {
         const newPassword = e.target.value;
@@ -65,13 +70,30 @@ export default function LoginPage() {
         event.preventDefault();
     };
     
+    
+    const settings = {
+          dots: true,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 1500,
+        };
+     
+
     return (
         <Grid container>
             <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }}>
             <Hidden xsDown>
-                <Image  src="/Juliacameron.svg" alt="learning" width={1400} height={1255} layout="responsive"/>
+            <Slider {...settings}>
+                <Image src="/Juliacameron.svg" alt="learning" width={1400} height={1255} layout="responsive"/>
+                <Image src="/Juliacameron.svg" alt="learning" width={1400} height={1255} layout="responsive"/>
+                <Image src="/Juliacameron.svg" alt="learning" width={1400} height={1255} layout="responsive"/>
+            </Slider>
             </Hidden>
             </Grid>
+            
 
             <Grid item xs={12} sm={6} order={{ xs: 2, sm: 1 }}>
                 <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "90vh",marginTop:'5px' }}>
