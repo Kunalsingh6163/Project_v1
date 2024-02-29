@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 function Footer() {
   return (
-    <Box  width={1530} sx={{marginTop:'100px', backgroundColor: 'black', color: 'white', py: 4 ,height:{xs:'800px',lg:'250px'}}}>
+    <Box  width={1530} sx={{ backgroundColor: 'black', color: 'white', py: 4 ,height:{xs:'800px',lg:'250px'}}}>
       <Grid container justifyContent="space-between" alignItems="flex-start">
         <Grid item xs={12} md={4} display="flex" flexDirection="column" alignItems="center">
           <Box mb={2}>
