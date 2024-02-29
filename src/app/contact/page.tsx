@@ -1,5 +1,5 @@
-import Contact from "../component/dashboard/Contact"
-import Appbar from "../component/dashboard/Appbar"
+import Contact from "../component/Contact/Contact"
+import Appbar from "../component/Appbar/Appbar"
 
 export default function contact(){
     return(

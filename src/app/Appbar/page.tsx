@@ -1,6 +1,6 @@
-import Appbar from "../component/dashboard/Appbar"
-import Footer from "../component/dashboard/Footer"
-import Subjects from "../component/dashboard/Subjects"
+import Appbar from "../component/Appbar/Appbar"
+import Footer from "../component/Footer/Footer"
+import Subjects from "../component/Dashboard/Subjects"
 
 export default function contact(){
     return(
