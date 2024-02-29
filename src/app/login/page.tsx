@@ -152,7 +152,7 @@ export default function LoginPage() {
                 </Button>
                 </Grid>
                 <Box sx={{ display: "block", textAlign: "center", marginTop: "20px",}}>
-                    Don't have an Account ?{" "}
+                    Don &nbsp t have an Account ?{" "}
                  <Link href="/signup" sx={{ "& .MuiTypography-root": { fontWeight: 'bold' } }}>
                          Sign Up
                     </Link>
