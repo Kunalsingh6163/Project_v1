@@ -1,4 +1,4 @@
-import Adverstisment from "../component/dashboard/Advert"
+import Adverstisment from "../component/Dashboard/Advert"
  
 
 

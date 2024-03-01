@@ -8,21 +8,18 @@ import Image from "next/image";
 import TextField from "@mui/material/TextField";
 import { IconButton } from "@mui/material";
 import {
-  Apple,
   Facebook,
   Google,
   LinkedIn,
-  Translate,
   Twitter,
   Visibility,
   VisibilityOff,
 } from "@mui/icons-material";
-import { Poppins } from "next/font/google";
-import { Fade } from "@mui/material";
-import Black from "@mui/icons-material";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Logo from "../../../public/Logo.svg";
+import AIML from '../../../public/AIML.svg'
 
 export default function LoginPage() {
   const router = useRouter();
@@ -75,68 +72,29 @@ export default function LoginPage() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1500,
+    autoplaySpeed: 3000,
   };
 
   return (
-    <Grid container>
-      <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }}>
-        <Hidden xsDown>
-          <Slider {...settings}>
-            <Image
-              src="/Juliacameron.svg"
-              alt="learning"
-              width={1400}
-              height={1255}
-              layout="responsive"
-            />
-            <Image
-              src="/Juliacameron.svg"
-              alt="learning"
-              width={1400}
-              height={1255}
-              layout="responsive"
-            />
-            <Image
-              src="/Juliacameron.svg"
-              alt="learning"
-              width={1400}
-              height={1255}
-              layout="responsive"
-            />
-          </Slider>
-        </Hidden>
-      </Grid>
-
-      <Grid item xs={12} sm={6} order={{ xs: 2, sm: 1 }}>
+    <Box sx={{ flexGrow: 1 }}>
+    <Grid container spacing={2}>
+      <Grid item xs={4} >
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            height: "90vh",
-            marginTop: "70px",
+            height: "60vh",
+            marginTop: "170px",
           }}
         >
           {loading && <Box>Loading...</Box>}
-          <Typography
-            variant="h4"
-            textAlign="center"
-            component="a"
-            sx={{
-              fontFamily: "Poppins,Sans-serif",
-              fontWeight: 700,
-            }}
-          >
-            <span style={{ color: "#FC6F6F" }}>inte</span>
-            <span style={{ color: "#CD0606" }}>ME</span>
-            <span style={{ color: "#21EA00" }}>gencePerk</span>
-          </Typography>
+          <Image src={Logo} alt="logo" width={200} height={100} />
 
           <Typography
             variant="h4"
@@ -156,11 +114,12 @@ export default function LoginPage() {
             Log in to proceed with your learning
           </Typography>
 
-          <Box sx={{ width: "60%", margin: "0 auto" }}>
+          <Box sx={{ width: "80%", margin: "0 auto" }}>
             <TextField
-              placeholder="Email Id"
+              placeholder="Enter Email Id"
               label="Email id"
               name="email"
+              size="small"
               required
               focused
               type="email"
@@ -170,8 +129,7 @@ export default function LoginPage() {
               margin="normal"
             />
             <TextField
-              sx={{ height: "45px" }}
-              placeholder="Password"
+              placeholder="Enter Password"
               label="Password"
               name="password"
               focused
@@ -205,7 +163,7 @@ export default function LoginPage() {
               sx={{
                 boxShadow: 1,
                 maxWidth: "100%",
-                height: "auto",
+                height: "41px",
                 width: "100%",
                 fontWeight: "800",
                 fontFamily: "Poppins,Sans-serif",
@@ -222,12 +180,13 @@ export default function LoginPage() {
               variant="h6"
               align="center"
               marginTop={1}
+              fontWeight={900}
               sx={{ color: "blue" }}
             >
               or login with
             </Typography>
-            <Grid
-              container
+            <Box sx={{marginTop:'25px'}}>
+            <Grid container spacing={2}
               sx={{ alignItems: "center", justifyContent: "space-between" }}
             >
               <Button
@@ -259,8 +218,7 @@ export default function LoginPage() {
                 Facebook
               </Button>
             </Grid>
-            <Grid
-              container
+            <Grid container spacing={2}
               sx={{
                 alignItems: "center",
                 justifyContent: "space-between",
@@ -297,10 +255,11 @@ export default function LoginPage() {
                 LinkedIn
               </Button>
             </Grid>
+            </Box>
             <Box
               sx={{ display: "block", textAlign: "center", marginTop: "20px" }}
             >
-              Don't have an Account ?{" "}
+              Don't have an Account ?
               <Link
                 href="/signup"
                 sx={{ "& .MuiTypography-root": { fontWeight: "bold" } }}
@@ -325,6 +284,58 @@ export default function LoginPage() {
           </Box>
         </Box>
       </Grid>
+      <Grid item xs={8} >
+        {/* <Hidden xsDown> */}
+          <Slider {...settings}>
+            <Box sx={{ width: "100%", height: "100%" }}>
+              <Image
+                src="/AI.svg"
+                alt="learning"
+                width={1000}
+                height={700}
+                layout="responsive"
+              />
+            </Box>
+            <Image
+              src={AIML}
+              alt="learning"
+              width={1000}             
+              height={700}
+              layout="responsive"
+            />
+            {/* </Box> */}
+            <Image
+              src={AIML}
+              alt="AI"
+              width={1000}
+              height={700}
+              layout="responsive"
+            />
+            <Image
+              src="/DevOps.svg"
+              alt="learning"
+              width={1000}
+              height={700}
+              layout="responsive"
+            />
+            <Image
+              src="/MernStack.svg"
+              alt="AI"
+              width={1000}
+              height={700}
+              layout="responsive"
+            />
+            <Image
+              src="/AI.svg"
+              alt="learning"
+              width={1000}
+              height={700}
+              layout="responsive"
+            />
+          </Slider>
+        {/* </Hidden> */}
+      </Grid>
     </Grid>
+    </Box>
   );
 }
