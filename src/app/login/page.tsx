@@ -1,19 +1,28 @@
-"use client"
-import React, { useEffect,useState} from "react";
-import {useRouter} from "next/navigation";
-import axios from 'axios'
-import toast,{Toaster} from 'react-hot-toast';
-import { Typography, Box, Button, Link, Grid, Hidden } from '@mui/material';
-import Image from 'next/image';
-import TextField from '@mui/material/TextField';
-import { IconButton } from '@mui/material';
-import { Apple, Facebook, Google, LinkedIn, Translate, Twitter, Visibility, VisibilityOff } from '@mui/icons-material';
+"use client";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
+import { Typography, Box, Button, Link, Grid, Hidden } from "@mui/material";
+import Image from "next/image";
+import TextField from "@mui/material/TextField";
+import { IconButton } from "@mui/material";
+import {
+  Apple,
+  Facebook,
+  Google,
+  LinkedIn,
+  Translate,
+  Twitter,
+  Visibility,
+  VisibilityOff,
+} from "@mui/icons-material";
 import { Poppins } from "next/font/google";
-import {Fade} from '@mui/material'
-import Black from '@mui/icons-material'
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import { Fade } from "@mui/material";
+import Black from "@mui/icons-material";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -26,19 +35,16 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = React.useState(false);
   const [passwordValid, setPasswordValid] = React.useState(true);
   const validatePassword = (password: any) => {
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d.*\d)[^\s]{8,100}$/;
+    const passwordRegex = /^(?=.[a-z])(?=.[A-Z])(?=.\d.\d)[^\s]{8,100}$/;
     return passwordRegex.test(password);
   };
 
-    
-
-    const handlePasswordChange = (e:any) => {
-        const newPassword = e.target.value;
-        setUser({ ...user, password: newPassword });
-        setPasswordValid(validatePassword(newPassword));
-        setButtonDisabled(newPassword === '');
-    
-    };
+  const handlePasswordChange = (e: any) => {
+    const newPassword = e.target.value;
+    setUser({ ...user, password: newPassword });
+    setPasswordValid(validatePassword(newPassword));
+    setButtonDisabled(newPassword === "");
+  };
 
   const onLogin = async () => {
     try {
@@ -66,17 +72,43 @@ export default function LoginPage() {
     event.preventDefault();
   };
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+  };
+
   return (
     <Grid container>
       <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }}>
         <Hidden xsDown>
-          <Image
-            src="/Juliacameron.svg"
-            alt="learning"
-            width={1400}
-            height={1255}
-            layout="responsive"
-          />
+          <Slider {...settings}>
+            <Image
+              src="/Juliacameron.svg"
+              alt="learning"
+              width={1400}
+              height={1255}
+              layout="responsive"
+            />
+            <Image
+              src="/Juliacameron.svg"
+              alt="learning"
+              width={1400}
+              height={1255}
+              layout="responsive"
+            />
+            <Image
+              src="/Juliacameron.svg"
+              alt="learning"
+              width={1400}
+              height={1255}
+              layout="responsive"
+            />
+          </Slider>
         </Hidden>
       </Grid>
 
@@ -88,13 +120,23 @@ export default function LoginPage() {
             alignItems: "center",
             justifyContent: "center",
             height: "90vh",
-            marginTop: "5px",
+            marginTop: "70px",
           }}
         >
           {loading && <Box>Loading...</Box>}
-          <Box>
-            <Image src="/Logo.svg" alt="Logo" width={250} height={250} />
-          </Box>
+          <Typography
+            variant="h4"
+            textAlign="center"
+            component="a"
+            sx={{
+              fontFamily: "Poppins,Sans-serif",
+              fontWeight: 700,
+            }}
+          >
+            <span style={{ color: "#FC6F6F" }}>inte</span>
+            <span style={{ color: "#CD0606" }}>ME</span>
+            <span style={{ color: "#21EA00" }}>gencePerk</span>
+          </Typography>
 
           <Typography
             variant="h4"
@@ -120,7 +162,6 @@ export default function LoginPage() {
               label="Email id"
               name="email"
               required
-              size="small"
               focused
               type="email"
               value={user.email}
@@ -133,7 +174,6 @@ export default function LoginPage() {
               placeholder="Password"
               label="Password"
               name="password"
-              size="small"
               focused
               required
               type={showPassword ? "text" : "password"}
@@ -167,10 +207,9 @@ export default function LoginPage() {
                 maxWidth: "100%",
                 height: "auto",
                 width: "100%",
-                fontWeight: "600",
+                fontWeight: "800",
                 fontFamily: "Poppins,Sans-serif",
                 color: "white",
-                marginTop: "15px",
               }}
             >
               Submit
@@ -215,7 +254,6 @@ export default function LoginPage() {
                   width: 200,
                   borderRadius: "5px",
                   height: 41,
-                  marginTop: { xs: 1, lg: 0 },
                 }}
               >
                 Facebook
@@ -226,7 +264,7 @@ export default function LoginPage() {
               sx={{
                 alignItems: "center",
                 justifyContent: "space-between",
-                marginTop: { xs: 1, lg: 2 },
+                marginTop: 2,
               }}
             >
               <Button
@@ -243,34 +281,6 @@ export default function LoginPage() {
               >
                 Twitter
               </Button>
-    const handleMouseDownPassword = (event:any) => {
-        event.preventDefault();
-    };
-    
-    
-    const settings = {
-          dots: true,
-          infinite: true,
-          speed: 500,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          autoplay: true,
-          autoplaySpeed: 1500,
-        };
-     
-
-    return (
-        <Grid container>
-            <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }}>
-            <Hidden xsDown>
-            <Slider {...settings}>
-                <Image src="/Juliacameron.svg" alt="learning" width={1400} height={1255} layout="responsive"/>
-                <Image src="/Juliacameron.svg" alt="learning" width={1400} height={1255} layout="responsive"/>
-                <Image src="/Juliacameron.svg" alt="learning" width={1400} height={1255} layout="responsive"/>
-            </Slider>
-            </Hidden>
-            </Grid>
-            
 
               <Button
                 startIcon={<LinkedIn />}
@@ -282,7 +292,6 @@ export default function LoginPage() {
                   width: 200,
                   borderRadius: "5px",
                   height: 41,
-                  marginTop: { xs: 1, lg: 0 },
                 }}
               >
                 LinkedIn
@@ -291,7 +300,7 @@ export default function LoginPage() {
             <Box
               sx={{ display: "block", textAlign: "center", marginTop: "20px" }}
             >
-              Don &nbsp t have an Account ?{" "}
+              Don't have an Account ?{" "}
               <Link
                 href="/signup"
                 sx={{ "& .MuiTypography-root": { fontWeight: "bold" } }}
@@ -306,7 +315,7 @@ export default function LoginPage() {
               backgroundColor: "#f0f0f0",
               textAlign: "center",
               padding: "10px 0",
-              marginTop: "5%",
+              marginTop: "20%",
             }}
           >
             <Typography variant="body2" color="#555">

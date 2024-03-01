@@ -145,7 +145,7 @@ export default function SignupPage() {
             alignItems: "center",
             justifyContent: "center",
             height: "80vh",
-            marginTop: "5%",
+            
           }}
         >
           <Box sx={{ marginTop: "150px" }}>
@@ -178,7 +178,7 @@ export default function SignupPage() {
               error={!!nameError}
               helperText={nameError}
             />
-                        <TextField
+            <TextField
               sx={{ height: "45px", borderRadius: "5px" }}
               label="Mobile No"
               color="primary"
