@@ -7,15 +7,12 @@ import { Typography, Box, Button, Link, Grid, Hidden } from "@mui/material";
 import Image from "next/image";
 import TextField from "@mui/material/TextField";
 import { IconButton } from "@mui/material";
-import {
-  LinkedIn,
-  Password,
-  Translate,
-  Visibility,
-  VisibilityOff,
-} from "@mui/icons-material";
+import { LinkedIn, Visibility, VisibilityOff } from "@mui/icons-material";
 import { Facebook, Twitter, Apple, Google } from "@mui/icons-material";
-import { ClassNames } from "@emotion/react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Dev from "../../../public/Dev.png";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -116,19 +113,27 @@ export default function SignupPage() {
     event.preventDefault();
   };
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 2000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
+
   return (
-    <Grid container>
+    <Grid container spacing={0}>
       {loading && <Box>Loading...</Box>}
       <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }}>
-        <Hidden xsDown>
-          <Image
-            src="/Juliacameron.svg"
-            alt="Pic of a kid learning"
-            width={922}
-            height={900}
-            layout="responsive"
-          />
-        </Hidden>
+        {/* <Hidden xsDown> */}
+        <Slider {...settings}>
+          <Image src={Dev} alt="DevOps image" height={680} width={1200} />
+          <Image src={Dev} alt="DevOps image" height={680} width={1200} />
+          <Image src={Dev} alt="DevOps image" height={680} width={1200} />
+          </Slider>
+        {/* </Hidden> */}
       </Grid>
       <Grid
         display={"flex"}
@@ -178,7 +183,7 @@ export default function SignupPage() {
               error={!!nameError}
               helperText={nameError}
             />
-                        <TextField
+            <TextField
               sx={{ height: "45px", borderRadius: "5px" }}
               label="Mobile No"
               color="primary"

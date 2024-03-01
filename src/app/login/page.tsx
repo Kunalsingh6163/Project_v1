@@ -1,19 +1,25 @@
-"use client"
-import React, { useEffect,useState} from "react";
-import {useRouter} from "next/navigation";
-import axios from 'axios'
-import toast,{Toaster} from 'react-hot-toast';
-import { Typography, Box, Button, Link, Grid, Hidden } from '@mui/material';
-import Image from 'next/image';
-import TextField from '@mui/material/TextField';
-import { IconButton } from '@mui/material';
-import { Apple, Facebook, Google, LinkedIn, Translate, Twitter, Visibility, VisibilityOff } from '@mui/icons-material';
-import { Poppins } from "next/font/google";
-import {Fade} from '@mui/material'
-import Black from '@mui/icons-material'
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+"use client";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
+import { Typography, Box, Button, Link, Grid, Hidden } from "@mui/material";
+import Image from "next/image";
+import TextField from "@mui/material/TextField";
+import { IconButton } from "@mui/material";
+import {
+  Facebook,
+  Google,
+  LinkedIn,
+  Twitter,
+  Visibility,
+  VisibilityOff,
+} from "@mui/icons-material";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Logo from "../../../public/Logo.svg";
+import AIML from '../../../public/AIML.svg'
 
 export default function LoginPage() {
   const router = useRouter();
@@ -26,19 +32,16 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = React.useState(false);
   const [passwordValid, setPasswordValid] = React.useState(true);
   const validatePassword = (password: any) => {
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d.*\d)[^\s]{8,100}$/;
+    const passwordRegex = /^(?=.[a-z])(?=.[A-Z])(?=.\d.\d)[^\s]{8,100}$/;
     return passwordRegex.test(password);
   };
 
-    
-
-    const handlePasswordChange = (e:any) => {
-        const newPassword = e.target.value;
-        setUser({ ...user, password: newPassword });
-        setPasswordValid(validatePassword(newPassword));
-        setButtonDisabled(newPassword === '');
-    
-    };
+  const handlePasswordChange = (e: any) => {
+    const newPassword = e.target.value;
+    setUser({ ...user, password: newPassword });
+    setPasswordValid(validatePassword(newPassword));
+    setButtonDisabled(newPassword === "");
+  };
 
   const onLogin = async () => {
     try {
@@ -66,35 +69,32 @@ export default function LoginPage() {
     event.preventDefault();
   };
 
-  return (
-    <Grid container>
-      <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }}>
-        <Hidden xsDown>
-          <Image
-            src="/Juliacameron.svg"
-            alt="learning"
-            width={1400}
-            height={1255}
-            layout="responsive"
-          />
-        </Hidden>
-      </Grid>
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 2000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
 
-      <Grid item xs={12} sm={6} order={{ xs: 2, sm: 1 }}>
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+    <Grid container spacing={2}>
+      <Grid item xs={4} >
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            height: "90vh",
-            marginTop: "5px",
+            height: "60vh",
+            marginTop: "170px",
           }}
         >
           {loading && <Box>Loading...</Box>}
-          <Box>
-            <Image src="/Logo.svg" alt="Logo" width={250} height={250} />
-          </Box>
+          <Image src={Logo} alt="logo" width={200} height={100} />
 
           <Typography
             variant="h4"
@@ -114,13 +114,13 @@ export default function LoginPage() {
             Log in to proceed with your learning
           </Typography>
 
-          <Box sx={{ width: "60%", margin: "0 auto" }}>
+          <Box sx={{ width: "80%", margin: "0 auto" }}>
             <TextField
-              placeholder="Email Id"
+              placeholder="Enter Email Id"
               label="Email id"
               name="email"
-              required
               size="small"
+              required
               focused
               type="email"
               value={user.email}
@@ -129,8 +129,7 @@ export default function LoginPage() {
               margin="normal"
             />
             <TextField
-              sx={{ height: "45px" }}
-              placeholder="Password"
+              placeholder="Enter Password"
               label="Password"
               name="password"
               size="small"
@@ -165,12 +164,11 @@ export default function LoginPage() {
               sx={{
                 boxShadow: 1,
                 maxWidth: "100%",
-                height: "auto",
+                height: "41px",
                 width: "100%",
-                fontWeight: "600",
+                fontWeight: "800",
                 fontFamily: "Poppins,Sans-serif",
                 color: "white",
-                marginTop: "15px",
               }}
             >
               Submit
@@ -183,12 +181,13 @@ export default function LoginPage() {
               variant="h6"
               align="center"
               marginTop={1}
+              fontWeight={900}
               sx={{ color: "blue" }}
             >
               or login with
             </Typography>
-            <Grid
-              container
+            <Box sx={{marginTop:'25px'}}>
+            <Grid container spacing={2}
               sx={{ alignItems: "center", justifyContent: "space-between" }}
             >
               <Button
@@ -215,18 +214,16 @@ export default function LoginPage() {
                   width: 200,
                   borderRadius: "5px",
                   height: 41,
-                  marginTop: { xs: 1, lg: 0 },
                 }}
               >
                 Facebook
               </Button>
             </Grid>
-            <Grid
-              container
+            <Grid container spacing={2}
               sx={{
                 alignItems: "center",
                 justifyContent: "space-between",
-                marginTop: { xs: 1, lg: 2 },
+                marginTop: 2,
               }}
             >
               <Button
@@ -243,34 +240,6 @@ export default function LoginPage() {
               >
                 Twitter
               </Button>
-    const handleMouseDownPassword = (event:any) => {
-        event.preventDefault();
-    };
-    
-    
-    const settings = {
-          dots: true,
-          infinite: true,
-          speed: 500,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          autoplay: true,
-          autoplaySpeed: 1500,
-        };
-     
-
-    return (
-        <Grid container>
-            <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }}>
-            <Hidden xsDown>
-            <Slider {...settings}>
-                <Image src="/Juliacameron.svg" alt="learning" width={1400} height={1255} layout="responsive"/>
-                <Image src="/Juliacameron.svg" alt="learning" width={1400} height={1255} layout="responsive"/>
-                <Image src="/Juliacameron.svg" alt="learning" width={1400} height={1255} layout="responsive"/>
-            </Slider>
-            </Hidden>
-            </Grid>
-            
 
               <Button
                 startIcon={<LinkedIn />}
@@ -282,16 +251,16 @@ export default function LoginPage() {
                   width: 200,
                   borderRadius: "5px",
                   height: 41,
-                  marginTop: { xs: 1, lg: 0 },
                 }}
               >
                 LinkedIn
               </Button>
             </Grid>
+            </Box>
             <Box
               sx={{ display: "block", textAlign: "center", marginTop: "20px" }}
             >
-              Don &nbsp t have an Account ?{" "}
+              Don't have an Account ?
               <Link
                 href="/signup"
                 sx={{ "& .MuiTypography-root": { fontWeight: "bold" } }}
@@ -306,7 +275,7 @@ export default function LoginPage() {
               backgroundColor: "#f0f0f0",
               textAlign: "center",
               padding: "10px 0",
-              marginTop: "5%",
+              marginTop: "20%",
             }}
           >
             <Typography variant="body2" color="#555">
@@ -316,6 +285,58 @@ export default function LoginPage() {
           </Box>
         </Box>
       </Grid>
+      <Grid item xs={8} >
+        {/* <Hidden xsDown> */}
+          <Slider {...settings}>
+            <Box sx={{ width: "100%", height: "100%" }}>
+              <Image
+                src="/AI.svg"
+                alt="learning"
+                width={1000}
+                height={700}
+                layout="responsive"
+              />
+            </Box>
+            <Image
+              src={AIML}
+              alt="learning"
+              width={1000}             
+              height={700}
+              layout="responsive"
+            />
+            {/* </Box> */}
+            <Image
+              src={AIML}
+              alt="AI"
+              width={1000}
+              height={700}
+              layout="responsive"
+            />
+            <Image
+              src="/DevOps.svg"
+              alt="learning"
+              width={1000}
+              height={700}
+              layout="responsive"
+            />
+            <Image
+              src="/MernStack.svg"
+              alt="AI"
+              width={1000}
+              height={700}
+              layout="responsive"
+            />
+            <Image
+              src="/AI.svg"
+              alt="learning"
+              width={1000}
+              height={700}
+              layout="responsive"
+            />
+          </Slider>
+        {/* </Hidden> */}
+      </Grid>
     </Grid>
+    </Box>
   );
 }
