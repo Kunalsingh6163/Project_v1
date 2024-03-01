@@ -65,8 +65,8 @@ export default function Appbar() {
 
   return (
     <AppBar
-      position="absolute"
-      sx={{ height: "90px", background: "white", boxShadow: 5 }}
+      position="relative"
+      sx={{ height: "80px", background: "white", boxShadow: 5 }}
     >
       <Container maxWidth={false}>
         <Toolbar
@@ -76,39 +76,41 @@ export default function Appbar() {
             height: "76px",
           }}
         >
-          <Image  src="/Logo.svg" alt="Logo" height={80} width={160} />
+          <Image src="/Logo.svg" alt="Logo" height={80} width={160} />
 
-
-          <Box sx={{  display: { xs: 'none', md: 'flex' }, gap: 2 }}>
-  {pages.map((page) => (
-    <Button
-      key={page}
-      onClick={(event) => {
-        if (page === 'Resource') {
-          handleResourceMenuOpen(event);
-        } else if (page === 'Company') {
-          handleCompanyMenuOpen(event);
-        } else if (page === 'Reviews') {
-          handleReviewsOpen(event);
-        } else {
-          handleCloseNavMenu();
-        }
-        
-      }}
-      sx={{
-        my: 2,
-        display: 'block',
-        fontFamily: 'Poppins, Sans-serif',
-        fontSize: '24px',
-        fontWeight: '400',
-        textTransform: 'none',
-        color: (page === 'Resource' && resourceMenuActive) || (page === 'Company' && companyMenuActive) ? '#0000FF' : '#747474', // Change color if corresponding menu is active
-      }}
-    >
-      {page}
-    </Button>
-  ))}
-</Box>
+          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
+            {pages.map((page) => (
+              <Button
+                key={page}
+                onClick={(event) => {
+                  if (page === "Resource") {
+                    handleResourceMenuOpen(event);
+                  } else if (page === "Company") {
+                    handleCompanyMenuOpen(event);
+                  } else if (page === "Reviews") {
+                    handleReviewsOpen(event);
+                  } else {
+                    handleCloseNavMenu();
+                  }
+                }}
+                sx={{
+                  my: 2,
+                  display: "block",
+                  fontFamily: "Poppins, Sans-serif",
+                  fontSize: "24px",
+                  fontWeight: "400",
+                  textTransform: "none",
+                  color:
+                    (page === "Resource" && resourceMenuActive) ||
+                    (page === "Company" && companyMenuActive)
+                      ? "#0000FF"
+                      : "#747474", // Change color if corresponding menu is active
+                }}
+              >
+                {page}
+              </Button>
+            ))}
+          </Box>
 
           {/*Small Screens Menu*/}
           <Box sx={{ display: { xs: "flex", md: "none" } }}>

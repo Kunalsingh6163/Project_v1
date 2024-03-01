@@ -1,6 +1,5 @@
 import React from 'react'
-import Subjects from '../component/Dashboard/Subjects'
-
+import Subjects from '../component/dashboard/Subjects'
 function Courses() {
   return (
     <div style={{marginTop:'90px', marginBottom:'100px'}}>

@@ -44,8 +44,12 @@ function Subjects() {
   ];
 
   return (
-    <Box position={{xs:'relative',md:'absolute'}} marginTop={'100px'}>
-      <Box position={{xs:'relative',md:'absolute'}} sx={{ left: { xs: '25px', md: '104px' }, alignContent: 'center' }} >
+    <Box  sx={{position:{xs:'relative',md:"relative" },marginTop:{xs:'30px',md:"50px"}}}>
+      <Box
+        position={{ xs: "relative", md: "relative" }}
+        sx={{ left: { xs: "25px", md: "104px" }, alignContent: "left" ,width:'500px'}}
+        
+      >
         <OutlinedInput
           sx={{
             width: "256px",
@@ -92,8 +96,12 @@ function Subjects() {
           }}
         />
       </Box>
-      <Box  marginTop={'100px'} marginRight={'700px'}>
-        <Grid container spacing={2} sx={{ paddingLeft: { xs: '10px', md: '104px' } }}>
+      <Box sx={{marginTop:{xs:'30px',md:"50px"}, marginRight:{md:"700px"}}}>
+        <Grid
+          container
+          spacing={2}
+          sx={{ paddingLeft: { xs: "10px", md: "104px" } }}
+        >
           {subjects.map((subject, index) => (
             <Grid item xs={12} sm={12} md={6} key={index}>
               <Card
@@ -177,7 +185,26 @@ function Subjects() {
                     </Typography>
                   </Box>
                   <Box>
-                    <Button variant='contained'  sx={{textTransform:'none',left:{xs:'40%',md:'60%'},width:'182px'}}>Continue<Avatar src='/arrowforward.svg' alt='Forward' sx={{width:"20px",height:"20px",left:"10px", backgroundColor:'white'}}/></Button>
+                    <Button
+                      variant="contained"
+                      sx={{
+                        textTransform: "none",
+                        left: { xs: "40%", md: "60%" },
+                        width: "182px",
+                      }}
+                    >
+                      Continue
+                      <Avatar
+                        src="/arrowforward.svg"
+                        alt="Forward"
+                        sx={{
+                          width: "20px",
+                          height: "20px",
+                          left: "10px",
+                          backgroundColor: "white",
+                        }}
+                      />
+                    </Button>
                   </Box>
                   <Box mt={2}>
                     <Slider
