@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function Comp() {
   return (
     <div>
-        <h1>hello</h1>
+      <h1>hello</h1>
     </div>
-  )
+  );
 }
 
-export default Comp
+export default Comp;

@@ -150,7 +150,7 @@ export default function SignupPage() {
             alignItems: "center",
             justifyContent: "center",
             height: "80vh",
-            marginTop: "5%",
+            
           }}
         >
           <Box sx={{ marginTop: "150px" }}>

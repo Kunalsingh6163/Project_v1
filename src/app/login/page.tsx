@@ -132,7 +132,6 @@ export default function LoginPage() {
               placeholder="Enter Password"
               label="Password"
               name="password"
-              size="small"
               focused
               required
               type={showPassword ? "text" : "password"}
