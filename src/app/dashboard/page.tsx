@@ -28,11 +28,11 @@ const Courses = [
 
 export default function Dashboard() {
   return (
-    <Box>
+    <Box  sx={{position:'relative'}}>
       <Stack
         sx={{
           marginLeft: { xs: 0, sm: 12 },
-          marginTop: 12,
+          marginTop: 12,position:"relative"
         }}
         direction={"row"}
         alignContent={"space-between"}
@@ -41,16 +41,18 @@ export default function Dashboard() {
         <Box flex={1}>
           <Button
             startIcon={
-              <img
+              <Image
                 src="/Courselogo.svg"
                 alt="Course Logo"
-                style={{ marginRight: 0, paddingRight: 0, padding: 0 }}
+                width={24}
+                height={18}
+                style={{ marginRight: 0, paddingRight:0 , padding: 0 }}
               />
             }
             variant="contained"
             sx={{
-              marginLeft: 0,
-              paddingLeft: 0,
+              marginLeft:0 ,
+              paddingLeft:{sm:'30px',lg:'0px'},
               width: { xs: 100, sm: 150 },
               height: "44px",
               textTransform: "none",
@@ -101,7 +103,7 @@ export default function Dashboard() {
         <Button
           variant="contained"
           sx={{
-            marginRight: 5,
+            marginRight:5,
             paddingLeft: 0,
             width: { xs: 100, sm: 100 },
             textTransform: "none",
@@ -122,13 +124,13 @@ export default function Dashboard() {
         sx={{
           width: { xs: "5", lg: "15" },
           fontSize: { xs: "10", lg: "20" },
-          position: "absolute",
+          position: "relative",
           paddingLeft: { xs: "10px", lg: "50px" },
           alignItems: { xs: "flex-start", md: "center" },
         }}
       >
         <Typography
-          variant="h3"
+          variant="h4"
           sx={{
             fontFamily: "Poppins,Sans-serif ",
             fontWeight: "600",
@@ -136,12 +138,37 @@ export default function Dashboard() {
           }}
         >
           {" "}
-          After Graduating,what deadline have
-          <br />
+          After Graduating,what deadline have<br/>
           you set for yourself to land your first job?
         </Typography>
+        
+        <Box
+          sx={{
+            top: "62px",
+            left: "1200px",
+            border: "1px",
+            position: "absolute",
+          }}
+        >
+          <Hidden xsDown>
+            <Image src="Ellipse.svg" alt="ellipse" width={555} height={555} />
+          </Hidden>
+        </Box>
+        <Box
+          sx={{
+            top: "150px",
+            left: "1300px",
+            border: "1px",
+            position: "absolute",
+          }}
+        >
+          <Hidden xsDown>
+            <Image src="user.svg" alt="user" width={355} height={355} />
+          </Hidden>
+        </Box>
+      
         <Typography
-          variant="body1"
+          variant="h6"
           sx={{ paddingTop: "30px", fontFamily: "Poppins,Sans-serif " }}
         >
           Are you seeking to build to build a rewarding career in IT,
@@ -153,7 +180,7 @@ export default function Dashboard() {
         </Typography>
 
         <Typography
-          variant="body1"
+          variant="h6"
           sx={{ paddingTop: "30px", fontFamily: "Poppins,Sans-serif " }}
         >
           if any this questions give you pause our team is here to assistin
@@ -161,7 +188,7 @@ export default function Dashboard() {
           transforming them into positive outcomes.
         </Typography>
         <Typography
-          variant="body1"
+          variant="h6"
           sx={{ paddingTop: "30px", fontFamily: "Poppins,Sans-serif " }}
         >
           This exclusive training program is corrupted especially for Aspiring
@@ -175,7 +202,7 @@ export default function Dashboard() {
           industry
         </Typography>
         <Typography
-          variant="h3"
+          variant="h4"
           sx={{
             paddingTop: "30px",
             fontFamily: "Poppins,Sans-serif ",
@@ -187,7 +214,7 @@ export default function Dashboard() {
           to schedule a free demo session with us.
         </Typography>
         <Typography
-          variant="body1"
+          variant="h6"
           sx={{ paddingTop: "30px", fontFamily: "Poppins,Sans-serif " }}
         >
           inteMEgence Perk was founded a clear mission to empower phrase
@@ -211,41 +238,15 @@ export default function Dashboard() {
             sx={{
               marginRight: 5,
               paddingLeft: 0,
-              width: { xs: 150, sm: 200 },
-              height: { xs: 40, sm: 60 },
+              width: { xs: 150, sm: 180 },
+              height: { xs: 40, sm: 50 },
               textTransform: "none",
               background: "blue",
-              fontSize: { xs: "1rem", md: "1.5rem" },
+              fontSize: { xs: "1rem", md: "1rem" },
             }}
           >
             Free Demo
           </Button>
-        </Box>
-      </Grid>
-      <Grid item xs={12} sm={6} order={{ xs: "2", sm: "1" }}>
-        <Box
-          sx={{
-            top: "192px",
-            left: "1700px",
-            border: "1px",
-            position: "absolute",
-          }}
-        >
-          <Hidden xsDown>
-            <Image src="Ellipse.svg" alt="ellipse" width={555} height={555} />
-          </Hidden>
-        </Box>
-        <Box
-          sx={{
-            top: "300px",
-            left: "1800px",
-            border: "1px",
-            position: "absolute",
-          }}
-        >
-          <Hidden xsDown>
-            <Image src="user.svg" alt="user" width={355} height={355} />
-          </Hidden>
         </Box>
       </Grid>
     </Box>
