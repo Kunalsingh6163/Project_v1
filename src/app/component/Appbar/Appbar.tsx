@@ -76,7 +76,7 @@ export default function Appbar() {
             height: "76px",
           }}
         >
-          <Image src="/Logo.svg" alt="Logo" height={80} width={160} />
+          <Image src="/Logo.svg" alt="Logo" height={80} width={180} />
 
           <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
             {pages.map((page) => (
@@ -97,8 +97,7 @@ export default function Appbar() {
                   my: 2,
                   display: "block",
                   fontFamily: "Poppins, Sans-serif",
-                  fontSize: "24px",
-                  fontWeight: "400",
+                  fontSize: "18px",
                   textTransform: "none",
                   color:
                     (page === "Resource" && resourceMenuActive) ||
