@@ -14,7 +14,6 @@ export default function Adverstisment() {
       <Card
         
         sx={{
-          display:'block',
           position:{xs:'relative',md:'relative'},
           width: {xs:'100%',md:"378px"},
           height: "291px",

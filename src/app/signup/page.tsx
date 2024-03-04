@@ -13,6 +13,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Dev from "../../../public/Dev.png";
+import { CircleOutlined } from "@mui/icons-material";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -115,46 +116,52 @@ export default function SignupPage() {
 
   const settings = {
     dots: true,
+    Slider: true,
     infinite: true,
     speed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    waitForAnimate: false,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2000,
+    customPaging: function(i:any) {
+      return (
+          <div  style={{ position: 'relative', textAlign: 'center' }}>
+              <CircleOutlined style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -150%)', color: 'white', fontSize: 24 }}>add_circle</CircleOutlined> {/* Example: Using the "add_circle" icon */}
+              <span className="slick-dots-bullet"></span>
+          </div>
+      );
+  }
   };
 
   return (
-    <Grid container spacing={0}>
+    <Box  sx={{ flexGrow: 1 }}>
+    <Grid container >
       {loading && <Box>Loading...</Box>}
-      <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }}>
-        {/* <Hidden xsDown> */}
-        <Slider {...settings}>
-          <Image src={Dev} alt="DevOps image" height={680} width={1200} />
-          <Image src={Dev} alt="DevOps image" height={680} width={1200} />
-          <Image src={Dev} alt="DevOps image" height={680} width={1200} />
-          </Slider>
-        {/* </Hidden> */}
-      </Grid>
+      
       <Grid
-        display={"flex"}
+        display={"block"}
         flexDirection="column"
         item
         xs={12}
-        sm={6}
+        sm={4}
+        position={'relative'}
         order={{ xs: 2, sm: 1 }}
       >
         <Box
           sx={{
+            position:'relative',
             display: "flex",
+            marginTop:{xs:'140px',md:'20px'},
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            height: "80vh",
+            height: {xs:'100vh',md:"90vh"}, // Adjust the height as needed
             
           }}
         >
-          <Box sx={{ marginTop: "150px" }}>
-            <Image src="/Logo.svg" alt="Logo" width={250} height={120} />
+          <Box >
+            <Image src="/Logo.svg" alt="Logo" width={300} height={160} />
           </Box>
 
           <Typography
@@ -166,7 +173,7 @@ export default function SignupPage() {
           >
             Create an Account
           </Typography>
-          <Grid sx={{ width: "60%" }}>
+          <Grid sx={{ width: "80%" }}>
             <TextField
               sx={{ height: "45px", borderRadius: "5px" }}
               label="Name"
@@ -247,7 +254,7 @@ export default function SignupPage() {
               onClick={onSignup}
               disabled={buttonDisabled}
               sx={{
-                marginTop: "15px",
+                marginTop: "5px",
                 boxShadow: 1,
                 maxWidth: "100%",
                 height: "auto",
@@ -260,7 +267,7 @@ export default function SignupPage() {
               Submit
             </Button>
             <Box
-              marginTop="5px"
+              marginTop="3px"
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -272,7 +279,7 @@ export default function SignupPage() {
                 or sign up with
               </Typography>
               <Box
-                marginTop={"10px"}
+                marginTop={"5px"}
                 display={"flex"}
                 flexDirection={"column"}
                 gap={"15px"}
@@ -341,7 +348,7 @@ export default function SignupPage() {
               </Box>
             </Box>
           </Grid>
-          <Box sx={{ display: "block", textAlign: "center", marginTop: "8px" }}>
+          <Box sx={{ display: "block", textAlign: "center" ,marginTop:'15px'}}>
             Already Have An Account! {""}
             <Link href="/login" underline="hover">
               Login
@@ -352,7 +359,7 @@ export default function SignupPage() {
               backgroundColor: "#f0f0f0",
               textAlign: "center",
               padding: "15px 0",
-              marginTop: "5%",
+              marginTop: "50px",
             }}
           >
             <Typography variant="body2" color="#555">
@@ -363,7 +370,60 @@ export default function SignupPage() {
             </Typography>
           </Box>
         </Box>
+        </Grid>
+        <Grid item xs={12} sm={8} order={{ xs: 1, sm: 2 }}>
+        <Slider {...settings} arrows={false} >
+              <Box sx={{ width: "100%", height: "100%" }}>
+                <Image
+                  src="/purple.svg"
+                  alt="learning"
+                  width={1000}
+                  height={500}
+                  layout="responsive"
+                />
+              </Box>
+              <Image
+                src={"/AI.svg"}
+                alt="learning"
+                width={1000}
+                height={500}
+                layout="responsive"
+
+              />
+              <Image
+                src={"/DevOps.svg"}
+                alt="AI"
+                width={1000}
+                height={500}
+                layout="responsive"
+
+              />
+              <Image
+                src="/MernStack.svg"
+                alt="learning"
+                width={1000}
+                height={500}
+                layout="responsive"
+
+              />
+              <Image
+                src="/AIML.svg"
+                alt="AI"
+                width={1000}
+                height={500}
+                layout="responsive"
+
+              />
+              <Image
+                src="/AI.svg"
+                alt="learning"
+                width={1000}
+                height={500}
+                layout="responsive"
+              />
+            </Slider>
       </Grid>
     </Grid>
+    </Box>
   );
 }
