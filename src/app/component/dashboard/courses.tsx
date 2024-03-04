@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import { ListItemText } from "@mui/material";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
+import Image from "next/image";
 
 const mainCourses = [
   "AI and Machine Learning",
@@ -84,7 +85,7 @@ const SubjectComponent: React.FC<{ course: any }> = ({ course }) => {
       }}
     >
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        <img
+        <Image
           src={logo}
           alt={name}
           style={{
@@ -220,16 +221,9 @@ export default function CategoryPage() {
               >
                 <CardContent>
                   <Box sx={{ position: "absolute", alignItems: "normal" }}>
-                    <img
+                    <Image
                       src={course.image}
                       alt={course.name}
-                      style={{
-                        width: "100%",
-                        position: "relative",
-                        height: "150%",
-                        marginBottom: "10px",
-                        transform: "translate(-5%, -15%)",
-                      }}
                     />
                     <SubjectComponent course={course} />
                     <Box sx={{ transform: "translate(-5%, 200%)" }}>
@@ -240,7 +234,7 @@ export default function CategoryPage() {
                           transform: "translate(5%, 100%)",
                         }}
                       >
-                        <img
+                        <Image
                           src="calendar.svg"
                           alt="calendar"
                           style={{

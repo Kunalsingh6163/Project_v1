@@ -1,9 +1,17 @@
 import React from 'react'
-import Subjects from '../component/dashboard/Subjects'
+import CourseCard  from "../component/Dashboard/CourseCard";
+
 function Courses() {
   return (
     <div style={{marginTop:'90px', marginBottom:'100px'}}>
-      <Subjects />
+      <CourseCard />
+      <CourseCard />
+
+      <CourseCard /> 
+      <CourseCard />
+
+      <CourseCard />
+      <CourseCard />
     </div>
   )
 }
