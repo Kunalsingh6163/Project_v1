@@ -5,13 +5,7 @@ function Courses() {
   return (
     <div style={{marginTop:'90px', marginBottom:'100px'}}>
       <CourseCard />
-      <CourseCard />
 
-      <CourseCard /> 
-      <CourseCard />
-
-      <CourseCard />
-      <CourseCard />
     </div>
   )
 }
