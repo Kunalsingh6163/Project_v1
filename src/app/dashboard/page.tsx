@@ -23,7 +23,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import SearchIcon from "../../../public/SearchIcon.svg";
 import Avatar from "@mui/material/Avatar";
-import CourseCard from "../component/Dashboard/CourseCard";
+import CourseCard from "../component/dashboard/CourseCard";
 
 const theme = createTheme({
   components: {
@@ -81,7 +81,7 @@ export default function Dashboard() {
       <CssBaseline />
       <ThemeProvider theme={theme}>
         <Container maxWidth="lg">
-          <Box sx={{ height: "100vh", overflow: "hidden" }}>
+          <Box sx={{ height: "auto", }}>
             <Grid
               container
               spacing={3}
@@ -250,12 +250,10 @@ export default function Dashboard() {
                 Free Demo
               </Button>
             </Box>
-            <Box sx={{marginBottom:5}}>
-            <CourseCard />
-            <CourseCard />
-            <CourseCard />
-            <CourseCard />
+            <Box>
+            <CourseCard/>
             </Box>
+            
           </Box>
         </Container>
       </ThemeProvider>
