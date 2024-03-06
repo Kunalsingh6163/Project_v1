@@ -81,7 +81,7 @@ export default function Dashboard() {
       <CssBaseline />
       <ThemeProvider theme={theme}>
         <Container maxWidth="lg">
-          <Box sx={{ height: "auto", }}>
+          <Box sx={{ height: "auto", width:'auto'}}>
             <Grid
               container
               spacing={3}
