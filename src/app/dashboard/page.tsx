@@ -23,7 +23,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import SearchIcon from "../../../public/SearchIcon.svg";
 import Avatar from "@mui/material/Avatar";
-import CourseCard from "../component/dashboard/CourseCard";
+import Cources from "../component/Dashboard/CourseCard";
 
 const theme = createTheme({
   components: {
@@ -56,6 +56,10 @@ const theme = createTheme({
     },
     h5: {
       fontSize: "1.25rem", // Adjusted for responsiveness
+    },
+    h6: {
+      fontSize: "1.25rem", // Adjusted for responsiveness
+      fontSizeAdjust: "17px"
     },
     subtitle1: {
       fontSize: "0.875rem", // Adjusted for responsiveness
@@ -155,7 +159,7 @@ export default function Dashboard() {
                   land your first job?
                 </Typography>
                 <Typography
-                  variant="body1"
+                  variant="h6"
                   sx={{
                     marginTop: 2,
                     textTransform: "none",
@@ -175,7 +179,7 @@ export default function Dashboard() {
                     fontFamily: "poppins",
                   }}
                 >
-                  if any this questions give you pause our team is here to
+                  If any this questions give you pause our team is here to
                   assist in transforming them into positive outcomes.
                 </Typography>
 
@@ -251,9 +255,8 @@ export default function Dashboard() {
               </Button>
             </Box>
             <Box>
-            <CourseCard/>
-            </Box>
-            
+            <Cources />
+            </Box>          
           </Box>
         </Container>
       </ThemeProvider>
