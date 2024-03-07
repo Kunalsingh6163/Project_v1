@@ -32,12 +32,12 @@ export default function Courses() {
 
   const [selectedMainCourse, setSelectedMainCourse] = useState(null);
 
-  const handleSubjectClick = (mainCourse:any) => {
+  const handleSubjectClick = (mainCourse: any) => {
     if (selectedMainCourse === mainCourse) {
       setSelectedMainCourse(null);
     } else {
       setSelectedMainCourse(mainCourse);
-    }
+    } 
   };
 
   const smallCards = {
@@ -47,7 +47,8 @@ export default function Courses() {
         image: "node.svg",
         style: {},
         logo: "nodelogo.svg",
-        description: "Learn to build scalable and efficient web applications with Node JS, a powerful runtime environment.",
+        description:
+          "Learn to build scalable and efficient web applications with Node JS, a powerful runtime environment.",
         duration: "",
         ratings: "",
       },
@@ -59,7 +60,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -71,7 +73,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -83,7 +86,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -97,7 +101,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "Python.svg",
-        description: "Learn the fundamentals of Python programming for Data Science. Explore data analysis, visualization, and machine learning techniques.",
+        description:
+          "Learn the fundamentals of Python programming for Data Science. Explore data analysis, visualization, and machine learning techniques.",
         duration: "5 months",
         ratings: "4.7",
       },
@@ -106,7 +111,8 @@ export default function Courses() {
         image: "ML.svg",
         style: { color: "#6C63FF", fontFamily: "Poppins" },
         logo: "MLlogo.svg",
-        description: "Dive deep into the principles of Machine Learning. Understand algorithms, models, and applications in real-world scenarios.",
+        description:
+          "Dive deep into the principles of Machine Learning. Understand algorithms, models, and applications in real-world scenarios.",
         duration: "6 months",
         ratings: "4.6",
       },
@@ -118,7 +124,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -130,7 +137,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -142,7 +150,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -154,7 +163,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -166,7 +176,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -178,12 +189,11 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
-     
-
     ],
     "Data Analyst-CloudFocused": [
       {
@@ -194,7 +204,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -203,7 +214,8 @@ export default function Courses() {
         image: "ExpressJS.svg",
         style: { color: "#FFFFFF", fontFamily: "Poppins" },
         logo: "Expresslogo.svg",
-        description: "Explore the backend framework Express JS for building robust web applications. Focus on cloud-based solutions.",
+        description:
+          "Explore the backend framework Express JS for building robust web applications. Focus on cloud-based solutions.",
         duration: "3 months",
         ratings: "5(3556 Ratings)",
       },
@@ -215,7 +227,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -227,7 +240,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -239,7 +253,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -251,7 +266,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -263,7 +279,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -275,7 +292,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -287,7 +305,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -299,7 +318,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -311,11 +331,11 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
-
     ],
     "Full Stack Development": [
       {
@@ -326,7 +346,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -335,7 +356,8 @@ export default function Courses() {
         image: "ExpressJS.svg",
         style: { color: "#FFFFFF", fontFamily: "Poppins" },
         logo: "Expresslogo.svg",
-        description: "Explore the backend framework Express JS for building robust web applications.",
+        description:
+          "Explore the backend framework Express JS for building robust web applications.",
         duration: "3 months",
         ratings: "5(3556 Ratings)",
       },
@@ -344,7 +366,8 @@ export default function Courses() {
         image: "ReactJS.svg",
         style: { color: "#61DBFB", fontFamily: "Poppins" },
         logo: "reactlogo.svg",
-        description: "Master front-end development with React JS. Build interactive user interfaces and dynamic web applications.",
+        description:
+          "Master front-end development with React JS. Build interactive user interfaces and dynamic web applications.",
         duration: "6 months",
         ratings: "7.1(7556 Ratings)",
       },
@@ -353,7 +376,8 @@ export default function Courses() {
         image: "Node.svg",
         style: { color: "#3FA038", fontFamily: "Poppins" },
         logo: "nodelogo.svg",
-        description: "Learn to build scalable and efficient web applications with Node JS, a powerful runtime environment.",
+        description:
+          "Learn to build scalable and efficient web applications with Node JS, a powerful runtime environment.",
         duration: "6 months",
         ratings: "6.7(6889 Ratings)",
       },
@@ -367,7 +391,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -376,7 +401,8 @@ export default function Courses() {
         image: "ExpressJS.svg",
         style: { color: "#FFFFFF", fontFamily: "Poppins" },
         logo: "Expresslogo.svg",
-        description: "Explore the backend framework Express JS for building robust web applications.",
+        description:
+          "Explore the backend framework Express JS for building robust web applications.",
         duration: "3 months",
         ratings: "5(3556 Ratings)",
       },
@@ -385,7 +411,8 @@ export default function Courses() {
         image: "ExpressJS.svg",
         style: { color: "#FFFFFF", fontFamily: "Poppins" },
         logo: "Expresslogo.svg",
-        description: "Explore the backend framework Express JS for building robust web applications.",
+        description:
+          "Explore the backend framework Express JS for building robust web applications.",
         duration: "3 months",
         ratings: "5(3556 Ratings)",
       },
@@ -399,7 +426,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -413,7 +441,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -427,7 +456,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -441,7 +471,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -455,7 +486,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -469,7 +501,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -478,7 +511,8 @@ export default function Courses() {
         image: "ExpressJS.svg",
         style: { color: "#FFFFFF", fontFamily: "Poppins" },
         logo: "Expresslogo.svg",
-        description: "Learn to build scalable and efficient web applications with Express JS, a powerful backend framework.",
+        description:
+          "Learn to build scalable and efficient web applications with Express JS, a powerful backend framework.",
         duration: "3 months",
         ratings: "5(3556 Ratings)",
       },
@@ -487,7 +521,8 @@ export default function Courses() {
         image: "ExpressJS.svg",
         style: { color: "#FFFFFF", fontFamily: "Poppins" },
         logo: "Expresslogo.svg",
-        description: "Learn to build scalable and efficient web applications with Express JS, a powerful backend framework.",
+        description:
+          "Learn to build scalable and efficient web applications with Express JS, a powerful backend framework.",
         duration: "3 months",
         ratings: "5(3556 Ratings)",
       },
@@ -501,7 +536,8 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
@@ -510,7 +546,8 @@ export default function Courses() {
         image: "ExpressJS.svg",
         style: { color: "#FFFFFF", fontFamily: "Poppins" },
         logo: "Expresslogo.svg",
-        description: "Learn to build scalable and efficient web applications with Express JS, a powerful backend framework.",
+        description:
+          "Learn to build scalable and efficient web applications with Express JS, a powerful backend framework.",
         duration: "3 months",
         ratings: "5(3556 Ratings)",
       },
@@ -521,7 +558,8 @@ export default function Courses() {
         image: "ExpressJS.svg",
         style: { color: "#FFFFFF", fontFamily: "Poppins" },
         logo: "Expresslogo.svg",
-        description: "Explore the backend framework Express JS for building robust web applications.",
+        description:
+          "Explore the backend framework Express JS for building robust web applications.",
         duration: "3 months",
         ratings: "5(3556 Ratings)",
       },
@@ -530,7 +568,8 @@ export default function Courses() {
         image: "ExpressJS.svg",
         style: { color: "#FFFFFF", fontFamily: "Poppins" },
         logo: "Expresslogo.svg",
-        description: "Explore the backend framework Express JS for building robust web applications.",
+        description:
+          "Explore the backend framework Express JS for building robust web applications.",
         duration: "3 months",
         ratings: "5(3556 Ratings)",
       },
@@ -539,7 +578,8 @@ export default function Courses() {
         image: "ExpressJS.svg",
         style: { color: "#FFFFFF", fontFamily: "Poppins" },
         logo: "Expresslogo.svg",
-        description: "Explore the backend framework Express JS for building robust web applications.",
+        description:
+          "Explore the backend framework Express JS for building robust web applications.",
         duration: "3 months",
         ratings: "5(3556 Ratings)",
       },
@@ -551,14 +591,15 @@ export default function Courses() {
           fontFamily: "Poppins",
         },
         logo: "mongologo.svg",
-        description: "MongoDB-Complete Guide(2024) for beginners to advanced level.",
+        description:
+          "MongoDB-Complete Guide(2024) for beginners to advanced level.",
         duration: "6 months",
         ratings: "5.3",
       },
     ],
   };
 
-  const SubjectComponent = ( {course}) => {
+  const SubjectComponent = ({ course }) => {
     const { title, style, logo } = course;
 
     return (
@@ -589,7 +630,14 @@ export default function Courses() {
             variant="h5"
             component="div"
             gutterBottom
-            style={{...style, transform: "translate(5%, 35%)", fontWeight: "600", fontSize: "20px", letterSpacing: "2%", font: "poppins" }}
+            style={{
+              ...style,
+              transform: "translate(5%, 35%)",
+              fontWeight: "600",
+              fontSize: "20px",
+              letterSpacing: "2%",
+              font: "poppins",
+            }}
           >
             {title}
           </Typography>
@@ -717,10 +765,13 @@ export default function Courses() {
                   <Box sx={{ position: "relative", paddingTop: "115px" }}>
                     <SubjectComponent course={card} />
                   </Box>
-                  
-                
-                  <Box sx={{ transform: "translate(-5%, 180%)", position: "relative" }}>
-                 
+
+                  <Box
+                    sx={{
+                      transform: "translate(-5%, 180%)",
+                      position: "relative",
+                    }}
+                  >
                     <Box
                       sx={{
                         display: "flex",
@@ -728,7 +779,6 @@ export default function Courses() {
                         transform: "translate(5%, 40%)",
                       }}
                     >
-                       
                       <Image
                         src="/calendar.svg"
                         alt="calendar"
@@ -809,7 +859,6 @@ export default function Courses() {
                       Know more..
                     </Typography>
                   </Box>
-                 
                 </CardContent>
               </Card>
             </Grid>
