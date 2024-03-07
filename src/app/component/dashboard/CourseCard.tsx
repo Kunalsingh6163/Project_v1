@@ -33,7 +33,7 @@ export default function Courses() {
 
   const [selectedMainCourse, setSelectedMainCourse] = useState(null);
 
-  const handleSubjectClick = (mainCourse:any) => {
+  const handleSubjectClick = (mainCourse: any) => {
     if (selectedMainCourse === mainCourse) {
       setSelectedMainCourse(null);
     } else {
@@ -103,7 +103,7 @@ export default function Courses() {
     ],
   };
 
-  const SubjectComponent = (card:any ) => {
+  const SubjectComponent = (card: any) => {
     const { title, style, logo } = card;
 
     return (
@@ -120,7 +120,7 @@ export default function Courses() {
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <img
+          <Image
             src={logo}
             alt={title}
             style={{
@@ -151,31 +151,17 @@ export default function Courses() {
   };
 
   return (
-    <Box>
+    <Box sx={{mt:2}}>
       <Typography
-        variant="h5"
-        style={{
-          width: "767px",
-          height: "59px",
-          top: "34px",
-          left: "63px",
-          fontFamily: "Poppins",
-          fontSize: "24px",
-          fontWeight: "400",
-          lineHeight: "32px",
-          letterSpacing: "0em",
-          textAlign: "left",
-          position: "absolute",
-        }}
+        sx={{ fontSize: "20px", fontFamily: "poppins", fontWeight: "700" }}
       >
         Top Certification Courses to Elevate Your Career
       </Typography>
       <Card
         sx={{
-          height: "500px",
-          width: "283px",
-          marginTop: "93px",
-          left: "5px",
+          height: "auto",
+          width: "285px",
+          marginTop: 2,
           boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.3)",
           position: "relative",
         }}
@@ -264,10 +250,15 @@ export default function Courses() {
                       transform: "translateX(-14.5%) translateY(-15%)",
                     }}
                   />
-                  <Box sx={{position:'relative', paddingTop:'115px'}}>
-                  <SubjectComponent course={card} />
+                  <Box sx={{ position: "relative", paddingTop: "115px" }}>
+                    <SubjectComponent course={card} />
                   </Box>
-                  <Box sx={{ transform: "translate(-5%, 180%)" ,position:'relative'}}>
+                  <Box
+                    sx={{
+                      transform: "translate(-5%, 180%)",
+                      position: "relative",
+                    }}
+                  >
                     <Box
                       sx={{
                         display: "flex",
@@ -296,11 +287,11 @@ export default function Courses() {
                           width: "52px",
                           height: "12px",
                           top: "1324px",
-                          paddingLeft:'3px'
+                          paddingLeft: "3px",
                         }}
                       >
                         {" "}
-                        {card. duration}
+                        {card.duration}
                       </Typography>
                     </Box>
                     <Box
@@ -317,7 +308,7 @@ export default function Courses() {
                           top: "1344px",
                           left: "444px",
                           transform: "rotate(-0deg)",
-                          paddingLeft:'3px'
+                          paddingLeft: "3px",
                         }}
                       />
                       <Typography
@@ -333,7 +324,7 @@ export default function Courses() {
                           lineHeight: "12px",
                           letterSpacing: "-0.05em",
                           textAlign: "left",
-                          paddingLeft:'3px'
+                          paddingLeft: "3px",
                         }}
                       >
                         {card.ratings}
