@@ -52,14 +52,14 @@ const theme = createTheme({
     },
     body2: {
       fontSize: "1rem", // Adjusted for responsiveness
-      color: '093BEF'
+      color: "093BEF",
     },
     h5: {
       fontSize: "1.25rem", // Adjusted for responsiveness
     },
     h6: {
       fontSize: "1.25rem", // Adjusted for responsiveness
-      fontSizeAdjust: "17px"
+      fontSizeAdjust: "17px",
     },
     subtitle1: {
       fontSize: "0.875rem", // Adjusted for responsiveness
@@ -85,7 +85,7 @@ export default function Dashboard() {
       <CssBaseline />
       <ThemeProvider theme={theme}>
         <Container maxWidth="lg">
-          <Box sx={{ height: "auto", width:'auto'}}>
+          <Box sx={{ height: "auto" }}>
             <Grid
               container
               spacing={3}
@@ -109,7 +109,7 @@ export default function Dashboard() {
                     size="small"
                     placeholder="what you want to find"
                     sx={{
-                      width:300,
+                      width: 300,
                       marginLeft: "2px",
                       "& .MuiInputBase-root": {
                         paddingLeft: "2px",
@@ -119,13 +119,13 @@ export default function Dashboard() {
                       },
                     }}
                   />
-                  <IconButton sx={{marginLeft:-5}}>
-                  <Image
-                    src={SearchIcon}
-                    alt={"Search icon"}
-                    width={24}
-                    height={24}
-                  />
+                  <IconButton sx={{ marginLeft: -5 }}>
+                    <Image
+                      src={SearchIcon}
+                      alt={"Search icon"}
+                      width={24}
+                      height={24}
+                    />
                   </IconButton>
                 </Box>
               </Grid>
@@ -159,9 +159,9 @@ export default function Dashboard() {
                   land your first job?
                 </Typography>
                 <Typography
-                  variant="h6"
                   sx={{
                     marginTop: 2,
+                    fontSize:'17px',
                     textTransform: "none",
                     fontFamily: "poppins",
                   }}
@@ -172,9 +172,9 @@ export default function Dashboard() {
                   appropriately for your contributions?
                 </Typography>
                 <Typography
-                  variant="body1"
                   sx={{
                     marginTop: 2,
+                    fontSize:'17px',
                     textTransform: "none",
                     fontFamily: "poppins",
                   }}
@@ -184,9 +184,9 @@ export default function Dashboard() {
                 </Typography>
 
                 <Typography
-                  variant="body1"
                   sx={{
                     marginTop: 2,
+                    fontSize:'17px',
                     textTransform: "none",
                     fontFamily: "poppins",
                   }}
@@ -209,9 +209,9 @@ export default function Dashboard() {
                   free demo session with us.
                 </Typography>
                 <Typography
-                  variant="body1"
                   sx={{
                     marginTop: 2,
+                    fontSize:'17px',
                     textTransform: "none",
                     fontFamily: "poppins",
                   }}
@@ -230,17 +230,20 @@ export default function Dashboard() {
                 item
                 xs={12}
                 md={4}
-                sx={{ display: "inline", justifyContent: "right" }}
+                sx={{ display: "inline", justifyContent: "right",  }}
               >
                 <Avatar
                   alt="Remy Sharp"
                   src="/Avtar.svg"
-                  sx={{ height: 250, width: 250 }}
+                  sx={{ height: 250, width: 250, marginLeft:15 }}
                 />
-                <Box sx={{marginTop:1, marginLeft:2}}>
-                <Typography variant="body1" sx={{color:'green', }}> CEO of  interMEgence Perk <br></br>
-                Sulekha Phukon
-                </Typography>
+                <Box sx={{ marginTop: 1, marginLeft: 2 }}>
+                  <Typography
+                    sx={{ color: "green", fontSize:'17px', marginLeft:15 }}
+                  >
+                    CEO of interMEgence Perk <br></br>
+                    Sulekha Phukon
+                  </Typography>
                 </Box>
               </Grid>
             </Grid>
@@ -255,8 +258,8 @@ export default function Dashboard() {
               </Button>
             </Box>
             <Box>
-            <Cources />
-            </Box>          
+              <Cources />
+            </Box>
           </Box>
         </Container>
       </ThemeProvider>
