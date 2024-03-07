@@ -29,6 +29,7 @@ export default function Courses() {
     "Business Analyst",
     "Internship Program",
     "Final year Projects industry based",
+    "ML"
   ];
 
   const [selectedMainCourse, setSelectedMainCourse] = useState(null);
