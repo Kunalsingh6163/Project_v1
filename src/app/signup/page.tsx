@@ -12,15 +12,16 @@ import { Facebook, Twitter, Apple, Google } from "@mui/icons-material";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Dev from "../../../public/Dev.png";
 import { CircleOutlined } from "@mui/icons-material";
+import { signinUser } from "../api/lib/api";
+// import { useRouter } from 'next/router'
 
 export default function SignupPage() {
   const router = useRouter();
   const [user, setUser] = React.useState({
-    Name: "",
-    Mobile: "",
-    email: "",
+    name: "",
+    mobile: "",
+    emailid: "",
     password: "",
   });
   const [buttonDisabled, setButtonDisabled] = React.useState(false);
@@ -41,9 +42,9 @@ export default function SignupPage() {
     }
   };
 
-  const validateEmail = (email: any) => {
+  const validateEmail = (emailid: any) => {
     const isValid = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
-      email
+      emailid
     );
     if (!isValid) {
       setEmailError("Please enter a valid email address");
@@ -77,10 +78,10 @@ export default function SignupPage() {
   const onSignup = async () => {
     try {
       setLoading(true);
-      if (!validateName(user.Name)) {
+      if (!validateName(user.name)) {
         return;
       }
-      if (!validateEmail(user.email)) {
+      if (!validateEmail(user.emailid)) {
         return;
       }
       if (!validatePassword(user.password)) {
@@ -99,7 +100,7 @@ export default function SignupPage() {
   };
 
   useEffect(() => {
-    if (user.email.length > 0 && user.password.length > 0 && user.Name.length) {
+    if (user.emailid.length > 0 && user.password.length > 0 && user.name.length) {
       setButtonDisabled(false);
     } else {
       setButtonDisabled(true);
@@ -112,6 +113,18 @@ export default function SignupPage() {
 
   const handleMouseDownPassword = (event: any) => {
     event.preventDefault();
+  };
+
+  const handleSignup = async (event: any) => {
+    event.preventDefault();
+    try {
+      const data = await signinUser(user.name, user.mobile, user.emailid, user.password,  );
+      console.log("Login successful", data);
+      // Handle successful login here (e.g., redirect, store token)
+      router.push('/dashboard');
+    } catch (error) {
+      console.error("Login failed", error);
+    }
   };
 
   const settings = {
@@ -171,7 +184,7 @@ export default function SignupPage() {
               height: { xs: "100vh", md: "90vh" }, // Adjust the height as needed
             }}
           >
-            <Box sx={{marginTop:20}}>
+            <Box sx={{ marginTop: 20 }}>
               <Image src="/Logo.svg" alt="Logo" width={300} height={160} />
             </Box>
 
@@ -185,98 +198,103 @@ export default function SignupPage() {
               Create an Account
             </Typography>
             <Grid sx={{ width: "80%" }}>
-              <TextField
-                sx={{ height: "45px", borderRadius: "5px" }}
-                label="Name"
-                color="primary"
-                placeholder="Name"
-                focused
-                name="Name"
-                size="small"
-                value={user.Name}
-                required
-                onChange={(e) => setUser({ ...user, Name: e.target.value })}
-                fullWidth
-                margin="normal"
-                error={!!nameError}
-                helperText={nameError}
-              />
-              <TextField
-                sx={{ height: "45px", borderRadius: "5px" }}
-                label="Mobile No"
-                color="primary"
-                placeholder="Enter Your Mobile No"
-                focused
-                name="Mobile"
-                size="small"
-                value={user.Mobile}
-                required
-                onChange={(e) => setUser({ ...user, Mobile: e.target.value })}
-                fullWidth
-                margin="normal"
-                error={!!nameError}
-                helperText={nameError}
-              />
-              <TextField
-                sx={{ height: "45px", borderRadius: "5px" }}
-                label="Email id"
-                focused
-                placeholder="Email Id"
-                name="email"
-                required
-                size="small"
-                type="email"
-                value={user.email}
-                onChange={(e) => setUser({ ...user, email: e.target.value })}
-                fullWidth
-                margin="normal"
-                error={!!emailError}
-                helperText={emailError}
-              />
-              <TextField
-                focused
-                sx={{ height: "45px", borderRadius: "5px" }}
-                placeholder="Password"
-                label="Password"
-                name="password"
-                size="small"
-                required
-                type={showPassword ? "text" : "password"}
-                InputProps={{
-                  endAdornment: (
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                    >
-                      {showPassword ? <Visibility /> : <VisibilityOff />}
-                    </IconButton>
-                  ),
-                }}
-                value={user.password}
-                onChange={(e) => setUser({ ...user, password: e.target.value })}
-                fullWidth
-                margin="normal"
-                error={!!passwordError}
-                helperText={passwordError}
-              />
-              <Button
-                variant="contained"
-                onClick={onSignup}
-                disabled={buttonDisabled}
-                sx={{
-                  marginTop: "5px",
-                  boxShadow: 1,
-                  maxWidth: "100%",
-                  height: "auto",
-                  width: "100%",
-                  fontWeight: "800",
-                  fontFamily: "Poppins,Sans-serif",
-                  color: "white",
-                }}
-              >
-                Submit
-              </Button>
+              <form onSubmit={ handleSignup }>
+                <TextField
+                  sx={{ height: "45px", borderRadius: "5px" }}
+                  label="Name"
+                  color="primary"
+                  placeholder="Name"
+                  focused
+                  name="Name"
+                  size="small"
+                  value={user.name}
+                  required
+                  onChange={(e) => setUser({ ...user, name: e.target.value })}
+                  fullWidth
+                  margin="normal"
+                  error={!!nameError}
+                  helperText={nameError}
+                />
+                <TextField
+                  sx={{ height: "45px", borderRadius: "5px" }}
+                  label="Mobile No"
+                  color="primary"
+                  placeholder="Enter Your Mobile No"
+                  focused
+                  name="Mobile"
+                  size="small"
+                  value={user.mobile}
+                  required
+                  onChange={(e) => setUser({ ...user, mobile: e.target.value })}
+                  fullWidth
+                  margin="normal"
+                  error={!!nameError}
+                  helperText={nameError}
+                />
+                <TextField
+                  sx={{ height: "45px", borderRadius: "5px" }}
+                  label="Email id"
+                  focused
+                  placeholder="Email Id"
+                  name="emailid"
+                  required
+                  size="small"
+                  type="email"
+                  value={user.emailid}
+                  onChange={(e) => setUser({ ...user, emailid: e.target.value })}
+                  fullWidth
+                  margin="normal"
+                  error={!!emailError}
+                  helperText={emailError}
+                />
+                <TextField
+                  focused
+                  sx={{ height: "45px", borderRadius: "5px" }}
+                  placeholder="Password"
+                  label="Password"
+                  name="password"
+                  size="small"
+                  required
+                  type={showPassword ? "text" : "password"}
+                  InputProps={{
+                    endAdornment: (
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                      >
+                        {showPassword ? <Visibility /> : <VisibilityOff />}
+                      </IconButton>
+                    ),
+                  }}
+                  value={user.password}
+                  onChange={(e) =>
+                    setUser({ ...user, password: e.target.value })
+                  }
+                  fullWidth
+                  margin="normal"
+                  error={!!passwordError}
+                  helperText={passwordError}
+                />
+                <Button
+                  variant="contained"
+                  // onClick={onSignup}
+                  type="submit"
+                  disabled={buttonDisabled}
+                  sx={{
+                    marginTop: "5px",
+                    boxShadow: 1,
+                    maxWidth: "100%",
+                    height: "auto",
+                    width: "100%",
+                    fontWeight: "800",
+                    fontFamily: "Poppins,Sans-serif",
+                    color: "white",
+                  }}
+                >
+                  Submit
+                </Button>
+              </form>
               <Box
                 marginTop="3px"
                 sx={{
@@ -310,36 +328,6 @@ export default function SignupPage() {
                     }}
                   >
                     Sign in with Google
-                  </Button>
-                  <Button
-                    startIcon={<Facebook />}
-                    variant="contained"
-                    sx={{
-                      height: 41,
-                      fontSize: 16,
-                      fontWeight: 400,
-                      textTransform: "none",
-                      borderRadius: "5px",
-                      background: "#316FF6",
-                      "&:hover": { background: "#316FF6" },
-                    }}
-                  >
-                    Sign in with Facebook
-                  </Button>
-                  <Button
-                    startIcon={<Twitter />}
-                    variant="contained"
-                    sx={{
-                      height: 41,
-                      fontSize: 16,
-                      fontWeight: 400,
-                      textTransform: "none",
-                      borderRadius: "5px",
-                      background: "#0077B5",
-                      "&:hover": { background: "#0077B5" },
-                    }}
-                  >
-                    Sign in with Twitter
                   </Button>
                   <Button
                     startIcon={<LinkedIn />}
