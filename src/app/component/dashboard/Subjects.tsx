@@ -13,33 +13,34 @@ import {
   Button,
   Slider,
 } from "@mui/material";
+import { Stack } from "@mui/system";
 
 function Subjects() {
   const subjects = [
     {
       title1: "Python Beginners to Advance with Projects",
       avatarSrc: "/python.svg",
-      avatarSx: { width: "100px", height: "100px" },
+      avatarSx: { width: "70px", height: "70px" },
     },
     {
       title2: "React JS Beginner to Advance With NextJS",
       avatarSrc: "/react.svg",
-      avatarSx: { width: "100px", height: "100px" },
+      avatarSx: { width: "70px", height: "70px" },
     },
     {
       title3: "Node Beginners to Advance with ExpressJS",
       avatarSrc: "/node.svg",
-      avatarSx: { width: "100px", height: "100px" },
+      avatarSx: { width: "70px", height: "70px" },
     },
     {
       title4: "AWS-S3 Bucket",
       avatarSrc: "/aws.svg",
-      avatarSx: { width: "100px", height: "100px" },
+      avatarSx: { width: "70px", height: "70px" },
     },
     {
       title5: "Node Beginners to Advance with ExpressJS",
       avatarSrc: "/mern.svg",
-      avatarSx: { width: "100px", height: "100px" },
+      avatarSx: { width: "70px", height: "70px" },
     },
   ];
 
@@ -47,7 +48,8 @@ function Subjects() {
     <Box  sx={{position:{xs:'relative',md:"relative" },marginTop:{xs:'30px',md:"50px"}}}>
       <Box
         position={{ xs: "relative", md: "relative" }}
-        sx={{ left: { xs: "25px", md: "104px" }, alignContent: "left" ,width:'500px'}}
+        sx={{ left: { xs: "8px", md: "75px" }, alignContent: "left" ,
+        width:'500px'}}
         
       >
         <OutlinedInput
@@ -77,10 +79,12 @@ function Subjects() {
           variant="filled"
           sx={{
             borderRadius: "20px",
-            marginRight: "20px",
-            width: "112px",
+            marginRight: {xs:"40px",md:"20px"},
+            width:{xs:"100px", md:"112px"},
             height: "29px",
-            marginTop: { xs: 2, md: 0 },
+            marginTop: { xs: 0, md: 0 },
+            
+           
           }}
         />
         <Chip
@@ -92,22 +96,25 @@ function Subjects() {
             borderRadius: "20px",
             width: "89px",
             height: "29px",
+          
             marginTop: { xs: 2, md: 0 },
           }}
         />
       </Box>
-      <Box sx={{marginTop:{xs:'30px',md:"50px"}, marginRight:{md:"700px"}}}>
+      <Box sx={{marginTop:{xs:'30px',md:"50px"}, marginLeft:"00px"}}>
         <Grid
           container
-          spacing={2}
-          sx={{ paddingLeft: { xs: "10px", md: "104px" } }}
+          spacing={3}
+          left={{xs:"10px", md: "00px"}}
+          width={'70%'}
         >
           {subjects.map((subject, index) => (
-            <Grid item xs={12} sm={12} md={6} key={index}>
+            <Grid item xs={12} sm={12} md={6} lg={6}key={index}>
               <Card
                 sx={{
-                  height: "209px",
-                  width: { xs: "350px", md: "499px" },
+                  height: "179px",
+                  width: { xs: "350px", md: "449px" },
+                  marginLeft:{xs:"10px",md:"80px"},
                   backgroundColor: "#B7E5FF80",
                 }}
               >
@@ -121,9 +128,9 @@ function Subjects() {
                     <Typography
                       sx={{
                         fontSize: { xs: "18px", md: "24px" },
-                        fontWeight: "700",
+                        fontWeight: "600",
                         marginLeft: "12px",
-                        marginTop: "30px",
+                        marginTop: "20px",
                         whiteSpace: "pre-line",
                         fontFamily: "Poppins,Sans-serif",
                       }}
@@ -134,9 +141,9 @@ function Subjects() {
                     <Typography
                       sx={{
                         fontSize: { xs: "16px", md: "24px" },
-                        fontWeight: "700",
+                        fontWeight: "600",
                         marginLeft: "12px",
-                        marginTop: "30px",
+                        marginTop: "20px",
                         whiteSpace: "pre-line",
                         fontFamily: "Poppins,Sans-serif",
                       }}
@@ -146,10 +153,10 @@ function Subjects() {
                     </Typography>
                     <Typography
                       sx={{
-                        fontSize: { xs: "18px", md: "24px" },
-                        fontWeight: "700",
+                        fontSize: { xs: "18px", md: "22px" },
+                        fontWeight: "600",
                         marginLeft: "12px",
-                        marginTop: "30px",
+                        marginTop: "20px",
                         whiteSpace: "pre-line",
                         fontFamily: "Poppins,Sans-serif",
                       }}
@@ -160,9 +167,9 @@ function Subjects() {
                     <Typography
                       sx={{
                         fontSize: { xs: "18px", md: "24px" },
-                        fontWeight: "700",
+                        fontWeight: "600",
                         marginLeft: "12px",
-                        marginTop: "30px",
+                        marginTop: "20px",
                         whiteSpace: "pre-line",
                         fontFamily: "Poppins,Sans-serif",
                       }}
@@ -172,10 +179,10 @@ function Subjects() {
                     </Typography>
                     <Typography
                       sx={{
-                        fontSize: { xs: "18px", md: "24px" },
-                        fontWeight: "700",
+                        fontSize: { xs: "18px", md: "22px" },
+                        fontWeight: "600",
                         marginLeft: "12px",
-                        marginTop: "30px",
+                        marginTop: "20px",
                         whiteSpace: "pre-line",
                         fontFamily: "Poppins,Sans-serif",
                       }}
@@ -190,7 +197,7 @@ function Subjects() {
                       sx={{
                         textTransform: "none",
                         left: { xs: "40%", md: "60%" },
-                        width: "182px",
+                        width: "152px",
                       }}
                     >
                       Continue
@@ -206,7 +213,7 @@ function Subjects() {
                       />
                     </Button>
                   </Box>
-                  <Box mt={2}>
+                  <Box mb={2}>
                     <Slider
                       defaultValue={0}
                       aria-label="Progress"

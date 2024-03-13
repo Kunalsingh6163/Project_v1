@@ -564,14 +564,14 @@ export default function Courses() {
     return (
       <Card
         sx={{
-          width: "174px",
-          height: "58px",
+          width: "154px",
+          height: "48px",
           top: "111px",
-          left: "48px",
+          left: "38px",
           border: "5px",
           background: " rgba(7, 3, 3, 1)",
           zIndex: "1",
-          transform: "translate(18%, -110%)",
+          transform: "translate(13%, -140%)",
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -582,14 +582,14 @@ export default function Courses() {
               width: "40px",
               height: "40px",
               marginRight: "8%",
-              transform: "translate(40%, 25%)",
+              transform: "translate(20%, 10%)",
             }}
           />
           <Typography
             variant="h5"
             component="div"
             gutterBottom
-            style={{...style, transform: "translate(5%, 35%)", fontWeight: "600", fontSize: "20px", letterSpacing: "2%", font: "poppins" }}
+            style={{...style, transform: "translate(0%, 30%)", fontWeight: "600", fontSize: "20px", letterSpacing: "2%", font: "poppins" }}
           >
             {title}
           </Typography>
@@ -599,6 +599,7 @@ export default function Courses() {
   };
 
   return (
+    
     <Box>
       <Typography
         variant="h5"
@@ -606,7 +607,7 @@ export default function Courses() {
           width: "767px",
           height: "59px",
           top: "34px",
-          left: "63px",
+          left: "10px",
           fontFamily: "Poppins",
           fontSize: "24px",
           fontWeight: "400",
@@ -626,7 +627,7 @@ export default function Courses() {
           left: "5px",
           boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.3)",
           position: "relative",
-          paddingBottom: "280px",
+          paddingBottom: "50px",
         }}
       >
         <CardContent>
@@ -676,29 +677,29 @@ export default function Courses() {
       {selectedMainCourse && (
         <Grid
           container
-          spacing={0}
-          sx={{
-            marginTop: "-650px",
-            marginLeft: "340px",
-            position: "relative",
-            rowGap: "8px",
-            paddingBottom: "300px",
-          }}
+          spacing="3"
+          sx={{ left: { xs: "70px", md: "330px" },
+          top:{xs: "60px", md: "-650px"} , rowGap: { xs: "30px", lg: "00px" },
+          columnGap: { xs: "00px", lg: "80px" },
+          position:"relative",
+          width:'80%',
+          marginBottom:'fixed' }}
         >
           {smallCards[selectedMainCourse].map((card, index) => (
             <Grid
               item
               key={index}
-              xs={8}
+              xs={12}
               sm={6}
-              md={2}
+              md={4}
               lg={3}
+              xl={2}
               sx={{ marginBottom: "8px" }}
             >
               <Card
                 sx={{
-                  width: "260px",
-                  height: "337px",
+                  width:"220px",
+                  height: '270px',
                   backgroundColor: "#FFF3F3",
                   display: "flex",
                 }}
@@ -707,11 +708,11 @@ export default function Courses() {
                   <Image
                     src={card.image}
                     alt={card.title}
-                    width={350}
-                    height={95}
+                    width={260}
+                    height={80}
                     style={{
                       position: "absolute",
-                      transform: "translateX(-17.2%) translateY(-16%)",
+                      transform: "translateX(-14%) translateY(-18%)",
                     }}
                   />
                   <Box sx={{ position: "relative", paddingTop: "115px" }}>
@@ -719,21 +720,21 @@ export default function Courses() {
                   </Box>
                   
                 
-                  <Box sx={{ transform: "translate(-5%, 180%)", position: "relative" }}>
+                  <Box sx={{ transform: "translate(-5%, 60%)", position: "relative" }}>
                  
                     <Box
                       sx={{
                         display: "flex",
                         alignItems: "center",
-                        transform: "translate(5%, 40%)",
+                        transform: "translate(5%, 120%)",
                       }}
                     >
                        
                       <Image
                         src="/calendar.svg"
                         alt="calendar"
-                        width={13}
-                        height={13}
+                        width={12}
+                        height={12}
                         style={{
                           left: "444px",
                           top: "1323px",
@@ -783,7 +784,7 @@ export default function Courses() {
                           left: "454px",
                           fontFamily: "Poppins",
                           fontSize: "10px",
-                          fontWeight: 500,
+                          fontWeight: '500',
                           lineHeight: "12px",
                           letterSpacing: "-0.05em",
                           textAlign: "left",
@@ -794,16 +795,16 @@ export default function Courses() {
                       </Typography>
                     </Box>
                     <Typography
-                      variant="subtitle2"
+                      variant="body2"
                       sx={{
                         color: "#0044F2",
                         width: "95px",
                         height: "24px",
                         fontFamily: "Poppins, sans-serif",
-                        fontSize: "14px",
-                        fontWeight: 600,
+                        fontSize: "10px",
+                        fontWeight: '600',
                         letterSpacing: "-0.02em",
-                        transform: "translate(180%, -25%)",
+                        transform: "translate(150%, 30%)",
                       }}
                     >
                       Know more..
