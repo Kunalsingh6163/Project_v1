@@ -11,101 +11,101 @@ import Image from "next/image";
 
 export default function Adverstisment() {
   return (
+    <Card
+      sx={{
+        position: { xs: "relative", md: "relative" },
+        width: { xs: "95%", md: "359px" },
+        height: "276px",
+        backgroundColor: "#F0F0F0",
+        borderRadius: "9.5px",
+        left: { md: "1083px" },
+        top: { xs: "28.5px", md: "-590px" },
+      }}
+    >
       <Card
-        
         sx={{
-          position:{xs:'relative',md:'relative'},
-          width: {xs:'100%',md:"378px"},
-          height: "291px",
-          backgroundColor: "#F0F0F0",
-          borderRadius: "10px",
-          left:{md:'1300px'},
-          top:{xs:'30px',md:'-660px'}
+          height: "239.4px",
+          width: "317.3px",
+          marginTop: "19px",
+          marginLeft: "19px",
+          borderRadius: "4.75px",
         }}
       >
-        <Card
-          sx={{
-            height: "252px",
-            width: "334px",
-            marginTop: "20px",
-            marginLeft: "20px",
-            borderRadius: "5px",
-          }}
-        >
-          <CardContent>
-            <Grid display={"flex"}>
-              <Typography
-                sx={{
-                  color: "#1A56B1",
-                  fontSize: { xs: "20px", sm: "20px" },
-                  lineHeight: "30px",
-                  font: "Poppins",
-                  fontWeight: "600",
-                  width: "250px",
-                }}
-              >
-                Get a Myntra <br />
-                Voucher Worth
-                <br />₹ 500
-              </Typography>
-              <Image
-                src="friendship 1.svg"
-                alt="friendship"
-                width={61}
-                height={62}
-                style={{ marginLeft: "0px" }}
-              />
-            </Grid>
-            <Box>
-              <Image
-                src="check 1.svg"
-                alt="check"
-                width={15}
-                height={15}
-                style={{ marginTop: "10px" }}
-              />
-              <Typography
-                variant="body2"
-                sx={{ marginLeft: "20px", marginTop: "-20px" }}
-              >
-                You’ll receive Rs 1000 Amazon voucher <br />
-                after they successfully enroll
-              </Typography>
-              <Image
-                src="check 1.svg"
-                alt="check"
-                width={15}
-                height={15}
-                style={{ marginTop: "10px" }}
-              />
-              <Typography
-                variant="body2"
-                sx={{ marginLeft: "20px", marginTop: "-20px" }}
-              >
-                Your Peer will receive 5% discount
-              </Typography>
-            </Box>
-            <Button
-              variant="contained"
+        <CardContent>
+          <Grid display={"flex"}>
+            <Typography
               sx={{
-                textTransform: "none",
-                backgroundColor: "#000AF0",
-                color: "white",
-                left: "135px",
-                marginTop: "15px",
+                color: "#1A56B1",
+                fontSize: { xs: "19px", sm: "19px" },
+                lineHeight: "28.5px",
+                font: "Poppins",
+                fontWeight: "600",
+                width: "237.5px",
               }}
             >
-              <Image
-                src={"/confetti.svg"}
-                alt="logo"
-                width={20}
-                height={20}
-                style={{ marginRight: "5px" }}
-              />
-              Refer your Peer
-            </Button>
-          </CardContent>
-        </Card>
+              Get a Myntra <br />
+              Voucher Worth
+              <br />
+              ₹ 500
+            </Typography>
+            <Image
+              src="friendship 1.svg"
+              alt="friendship"
+              width={57.95}
+              height={58.1}
+              style={{ marginLeft: "0px" }}
+            />
+          </Grid>
+          <Box>
+            <Image
+              src="check 1.svg"
+              alt="check"
+              width={14.25}
+              height={14.25}
+              style={{ marginTop: "9.5px" }}
+            />
+            <Typography
+              variant="body2"
+              sx={{ marginLeft: "19px", marginTop: "-19px" }}
+            >
+              You’ll receive Rs 500 Amazon voucher <br />
+              after they successfully enroll
+            </Typography>
+            <Image
+              src="check 1.svg"
+              alt="check"
+              width={14.25}
+              height={14.25}
+              style={{ marginTop: "9.5px" }}
+            />
+            <Typography
+              variant="body2"
+              sx={{ marginLeft: "19px", marginTop: "-19px" }}
+            >
+              Your Peer will receive 5% discount
+            </Typography>
+          </Box>
+          <Button
+            variant="contained"
+            sx={{
+              textTransform: "none",
+              backgroundColor: "#000AF0",
+              color: "white",
+              left: "128.25px",
+              marginTop: "13px",
+            }}
+          >
+            <Image
+              src={"/confetti.svg"}
+              alt="logo"
+              width={18}
+              height={18}
+              style={{ marginRight: "4.75px" }}
+            />
+            Refer your Peer
+          </Button>
+        </CardContent>
       </Card>
+    </Card>
   );
 }
