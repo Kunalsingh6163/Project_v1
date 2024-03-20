@@ -1,15 +1,15 @@
 // lib/api.ts
-async function loginUser(email: any, password: any) {
-    const response = await fetch('http://localhost:8000/lmsuser/login', {
-      method: 'GET',
+async function loginUser(emailid: any, password: any) {
+    const response = await fetch('http://localhost:8000/lmsusers/login', {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ emailid, password }),
     });
   
     if (!response.ok) {
-      throw new Error('Login failed');
+      throw new Error('User does not exist');
     }
   
     const data = await response.json();
@@ -32,5 +32,21 @@ async function loginUser(email: any, password: any) {
     return data;
   }
   
-  export { loginUser, signinUser };
+  async function contactUser(name: any, mobile: any, emailid: any, message: any ) {
+    console.log(name, mobile, emailid, message, "message here")
+    const response = await fetch('http://localhost:8000/lmsusers/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, mobile, emailid, message, }),
+    });
+
+    console.log(response)
+ 
+    const data = await response.json();
+    return data;
+  }
+  
+  export { loginUser, signinUser,contactUser };
   

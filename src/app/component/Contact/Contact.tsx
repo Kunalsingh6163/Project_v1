@@ -9,18 +9,18 @@ import {
   Typography,
   Box,
   Button,
-  Link,
+  Grid,
 } from "@mui/material";
 import Image from "next/image";
 import TextField from "@mui/material/TextField";
+import { contactUser } from "@/app/api/lib/api";
 
 export default function Contact() {
   const router = useRouter();
   const [user, setUser] = React.useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    mobileNo: "",
+    name: "",
+    emailid: "",
+    mobile: "",
     message: "",
   });
   const [buttonDisabled, setButtonDisabled] = React.useState(false);
@@ -28,11 +28,10 @@ export default function Contact() {
 
   useEffect(() => {
     if (
-      user.email.length > 0 &&
+      user.emailid.length > 0 &&
       user.message.length > 0 &&
-      user.firstName.length > 0 &&
-      user.lastName.length > 0 &&
-      user.mobileNo.length > 0
+      user.name.length > 0 &&
+      user.mobile.length > 0
     ) {
       setButtonDisabled(false);
     } else {
@@ -48,180 +47,184 @@ export default function Contact() {
       router.push("");
     } catch (error: any) {
       console.log("Submit failed", error.message);
-
       toast.error(error.message);
     } finally {
       setLoading(false);
     }
   };
 
+  const handleContact = async (event: any) => {
+    event.preventDefault();
+    try {
+      const data = await contactUser(
+        user.name,
+        user.emailid,
+        user.mobile,
+        user.message
+      );
+      console.log("Contact Saved", data);
+    } catch (error) {
+      console.error("Contact failed", error);
+    }
+  };
+
   return (
-    <Box>
-      <Box>
-        {loading && <Box>Loading...</Box>}
-        <Card
-          sx={{
-            position: "absolute",
-            width: "100%",
-            maxWidth: "1191px",
-            height: "70vh",
-            left: "50%",
-            top: "50%",
-            transform: "translate(-50%, -50%)",
-            background: "rgba(143, 228, 247)",
-            borderRadius: "50px",
-            "@media screen and (max-width: 720px)": {
-              width: "100%",
-              height: "95vh",
-              borderRadius: "50px",
-            },
-          }}
-        >
-          <Box>
-            <CardContent>
+    <Box
+      sx={{
+        flexGrow: 1,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+              {loading && <Box>Loading...</Box>}
+      <Card
+        sx={{
+          marginTop: { xs: "5px", lg: "50px" },
+          marginLeft: { xs: "0", lg: "50px" },
+          position: "relative",
+          width: { xs: "100%", lg: "1440px" },
+          boxShadow: "inherit",
+          background: "#EEEEEE",
+          borderRadius: "10px",
+          height: { xs: "100%", lg: "734px" },
+        }}
+      >
+        <CardContent>
+          <Grid
+            container
+            spacing={1}
+            justifyContent="center"
+            alignItems="center"
+            marginTop={10}
+          >
+            <Grid
+              item
+              xs={12}
+              md={6}
+              sx={{
+                paddingRight: { xs: "0", lg: "80px" },
+                paddingBottom: { xs: "50px" },
+                borderRight: { xs: "0", lg: "5px solid #0009D9" },
+                borderBottom: { xs: "5px solid #0009D9", lg: 0 },
+              }}
+            >
               <Image
                 style={{
-                  position: "absolute",
-                  height: "90%",
-                  left: "25%",
-                  maxWidth: "80%",
-                  transform: "translateX(-50%)",
+                  position: "relative",
+                  height: "100%",
+                  maxWidth: "100%",
                 }}
-                src="stall.svg"
+                src="contactUs.svg"
                 alt="Picture of a stall"
-                width={543}
-                height={700}
+                width={550}
+                height={550}
               />
-              <Box
-                sx={{
-                  position: "absolute",
-                  fontFamily: "poppins",
-                  marginTop: "1%",
-                  width: "110%",
-                  maxWidth: "125%",
-                  height: "auto",
-                  left: "50%",
-                  textAlign: "center",
-                  transform: "translateX(-50%)",
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+              sx={{
+                marginLeft: { xs: 0, lg: 13 },
+                marginTop: { xs: "25px", lg: 0 },
+              }}
+            >
+              <Image
+                style={{
+                  marginLeft: "25%",
+                  width: "200px",
+                  height: "120px",
                 }}
+                src="Logo.svg"
+                alt="logo"
+                width={200}
+                height={95}
+              />
+              <Typography
+                sx={{ marginLeft: { xs: "25%", lg: "28%" } }}
+                variant="h4"
+                fontWeight="600"
+                color="#0024E0"
               >
-                <Typography variant="h4" fontWeight="600" color="#0024E0">
-                  Contact Information
-                </Typography>
-              </Box>
-
-              <Box
-                sx={{
-                  position: "absolute",
-                  fontFamily: "Poppins,sans-serif",
-                  width: "100%",
-                  maxwidth: "100px",
-                  top: "100px",
-                  left: "70%",
-                  transform: "translateX(-50%)",
-                  fontWeight: "500",
-                  textAlign: "center",
-                }}
-              >
-                <Typography variant="h5" fontWeight="600" color="#0024E0">
-                  Contact Info Here!
-                </Typography>
-              </Box>
-              <Box>
-                <Box
+                Contact us
+              </Typography>
+              <form onSubmit={handleContact}>
+                <TextField
+                  label="Name"
+                  name="name"
+                  size="small"
+                  placeholder="Enter Your Name"
+                  focused
+                  value={user.name}
+                  required
+                  onChange={(e) => setUser({ ...user, name: e.target.value })}
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  label="Email id"
+                  name="email"
+                  required
+                  placeholder="Enter Email id"
+                  size="small"
+                  focused
+                  type="email"
+                  value={user.emailid}
+                  onChange={(e) =>
+                    setUser({ ...user, emailid: e.target.value })
+                  }
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  label="Mobile No"
+                  name="number"
+                  required
+                  focused
+                  placeholder="Enter Mobile"
+                  type="number"
+                  size="small"
+                  value={user.mobile}
+                  onChange={(e) => setUser({ ...user, mobile: e.target.value })}
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  label="Message"
+                  name="message"
+                  required
+                  placeholder="Write Here!"
+                  size="small"
+                  focused
+                  value={user.message}
+                  onChange={(e) =>
+                    setUser({ ...user, message: e.target.value })
+                  }
+                  fullWidth
+                  margin="normal"
+                />
+                <Button
+                  type="submit"
+                  disabled={buttonDisabled}
+                  variant="contained"
                   sx={{
-                    position: "absolute",
+                    maxWidth: "100%",
+                    height: "auto",
+                    background: "rgba(0, 36, 224, 1)",
+                    width: "100%",
+                    fontWeight: "1000",
                     fontFamily: "Poppins,sans-serif",
-                    width: "40%",
-                    maxWidth: "600px",
-                    top: "120px",
-                    left: "70%",
-                    transform: "translateX(-50%)",
-                    fontWeight: "500",
-                    textAlign: "center",
+                    color: "#FFFFFF",
                   }}
                 >
-                  <TextField
-                    label="First Name"
-                    name="firstName"
-                    value={user.firstName}
-                    required
-                    onChange={(e) =>
-                      setUser({ ...user, firstName: e.target.value })
-                    }
-                    fullWidth
-                    margin="normal"
-                  />
-                  <TextField
-                    label="Last Name"
-                    name="lastName"
-                    value={user.lastName}
-                    required
-                    onChange={(e) =>
-                      setUser({ ...user, lastName: e.target.value })
-                    }
-                    fullWidth
-                    margin="normal"
-                  />
-                  <TextField
-                    label="Email id"
-                    name="email"
-                    required
-                    type="email"
-                    value={user.email}
-                    onChange={(e) =>
-                      setUser({ ...user, email: e.target.value })
-                    }
-                    fullWidth
-                    margin="normal"
-                  />
-                  <TextField
-                    label="Mobile No"
-                    name="number"
-                    required
-                    type="number"
-                    value={user.mobileNo}
-                    onChange={(e) =>
-                      setUser({ ...user, mobileNo: e.target.value })
-                    }
-                    fullWidth
-                    margin="normal"
-                  />
-
-                  <TextField
-                    label="Message"
-                    name="message"
-                    required
-                    value={user.message}
-                    onChange={(e) =>
-                      setUser({ ...user, message: e.target.value })
-                    }
-                    fullWidth
-                    margin="normal"
-                  />
-
-                  <Button
-                    onClick={onSubmit}
-                    disabled={buttonDisabled}
-                    sx={{
-                      maxWidth: "80%",
-                      height: "auto",
-                      background: "rgba(0, 36, 224, 1)",
-                      left: "5px",
-                      width: "100px",
-                      fontWeight: "1000",
-                      fontFamily: "Poppins,sans-serif",
-                      color: "#FFFFFF",
-                    }}
-                  >
-                    Submit
-                  </Button>
-                </Box>
-              </Box>
-            </CardContent>
-          </Box>
-        </Card>
-      </Box>
+                  Submit
+                </Button>
+              </form>
+            </Grid>
+          </Grid>
+        </CardContent>
+      </Card>
     </Box>
   );
 }
