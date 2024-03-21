@@ -4,9 +4,9 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { Typography, Box, Button, Link, Grid, Hidden } from "@mui/material";
-import Image from "next/image";
 import TextField from "@mui/material/TextField";
 import { IconButton } from "@mui/material";
+import Image from "next/image";
 import {
   Facebook,
   Google,
@@ -22,17 +22,20 @@ import Logo from "../../../public/Logo.svg";
 import AIML from '../../../public/AIML.svg'
 import Carousel from '@itseasy21/react-elastic-carousel';
 import { CircleOutlined } from "@mui/icons-material";
+import { loginUser } from "../api/lib/api";
 
 export default function LoginPage() {
   const router = useRouter();
   const [user, setUser] = React.useState({
-    email: "",
+    emailid: "",
     password: "",
   });
   const [buttonDisabled, setButtonDisabled] = React.useState(false);
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
   const [passwordValid, setPasswordValid] = React.useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
+  
   const validatePassword = (password: any) => {
     const passwordRegex = /^(?=.[a-z])(?=.[A-Z])(?=.\d.\d)[^\s]{8,100}$/;
     return passwordRegex.test(password);
@@ -60,8 +63,8 @@ export default function LoginPage() {
   };
 
   useEffect(() => {
-    setButtonDisabled(!(user.email && passwordValid));
-  }, [user.email, passwordValid]);
+    setButtonDisabled(!(user.emailid && passwordValid));
+  }, [user.emailid, passwordValid]);
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -71,6 +74,31 @@ export default function LoginPage() {
     event.preventDefault();
   };
 
+  const handleLogin = async (event: any) => {
+    event.preventDefault();
+    try {
+      const data = await loginUser(user.emailid, user.password);
+      console.log("Login successful", data);
+      // Handle successful login here (e.g., redirect, store token)
+      router.push('/dashboard');
+    } catch (error:any) {
+      if (error.response && error.response.data) {
+        const { data } = error.response;
+        if (data.error === 'User does not exist') {
+          setErrorMessage(data.message || "User does not exist");
+        } else {
+          setErrorMessage("User does not exist");
+          console.error("User does not exist", error);
+        }
+      } else {
+        setErrorMessage("User does not exist");
+        console.error("User does not exist", error);
+      }
+    }
+  };
+  const errorMessageStyle = {
+    color: 'red'
+  };
   const settings = {
     dots: true,
     Slider: true,
@@ -109,7 +137,7 @@ export default function LoginPage() {
               padding: "0 20px", // Add padding to the sides
             }}
           >
-            <Image src={Logo} alt="logo" width={400} height={200} />
+            <Image src="/Logo.svg" alt="logo" width={400} height={200} />
 
             <Typography
               variant="h4"
@@ -130,16 +158,17 @@ export default function LoginPage() {
             </Typography>
 
             <Box sx={{ width: "80%", }}>
+            <form onSubmit={ handleLogin }>
               <TextField
                 placeholder="Enter Email Id"
                 label="Email id"
-                name="email"
+                name="emailid"
                 size="small"
                 required
                 focused
                 type="email"
-                value={user.email}
-                onChange={(e) => setUser({ ...user, email: e.target.value })}
+                value={user.emailid}
+                onChange={(e) => setUser({ ...user, emailid: e.target.value })}
                 fullWidth
                 margin="normal"
               />
@@ -150,7 +179,7 @@ export default function LoginPage() {
                 size="small"
                 focused
                 required
-                type={showPassword ? "text" : "password"}
+                type="password"
                 InputProps={{
                   endAdornment: (
                     <IconButton
@@ -163,7 +192,9 @@ export default function LoginPage() {
                   ),
                 }}
                 value={user.password}
-                onChange={handlePasswordChange}
+                onChange={(e) =>
+                  setUser({ ...user, password: e.target.value })
+                }
                 fullWidth
                 margin="normal"
                 error={!passwordValid}
@@ -171,10 +202,13 @@ export default function LoginPage() {
                   !passwordValid &&
                   "Password must be 8-100 characters long, contain at least one uppercase letter, one lowercase letter, and at least two digits. It should not contain spaces and blacklist specific values."
                 }
-              />
+              />              
+                  {errorMessage && <span className="error-message" style={errorMessageStyle}>{errorMessage}</span>}
+              
               <Button
                 variant="contained"
-                onClick={onLogin}
+                type="submit"
+                // onClick={onLogin}
                 disabled={buttonDisabled}
                 sx={{
                   boxShadow: 1,
@@ -188,6 +222,7 @@ export default function LoginPage() {
               >
                 Submit
               </Button>
+              </form>
               <Typography sx={{ textAlign: "end", color: "rgba(0, 36, 224, 1)" }}>
                 <Link sx={{ cursor: "pointer" }}> forgot password</Link>
               </Typography>

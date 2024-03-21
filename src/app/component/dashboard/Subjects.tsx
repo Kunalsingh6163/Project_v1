@@ -13,7 +13,7 @@ import {
   Button,
   Slider,
 } from "@mui/material";
-import { Stack } from "@mui/system";
+import Pagination from '@mui/material/Pagination';
 
 function Subjects() {
   const subjects = [
@@ -225,6 +225,9 @@ function Subjects() {
             </Grid>
           ))}
         </Grid>
+        <Box marginTop={10} display={"flex"} justifyContent={"center"}>
+        <Pagination count={10} />
+        </Box>
       </Box>
     </Box>
   );
