@@ -1,5 +1,5 @@
-import Appbar from "../component/Appbar/Appbar";
-import Footer from "../component/Footer/Footer";
+import Appbar from "../component/appbar/Appbar";
+import Footer from "../component/footer/Footer";
 import Subjects from "../component/dashboard/Subjects";
 import Userdetails from "../component/dashboard/ActivityCard";
 import Adverstisment from "../component/dashboard/Advert";

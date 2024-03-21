@@ -5,7 +5,7 @@ import Avatar from "@mui/material/Avatar";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Image from "next/image";
-import Content from "../component/Description/Description";
+import Content from "../component/description/Description";
 import { useState } from "react";
 
 const Item = styled(Paper)(({ theme }) => ({
