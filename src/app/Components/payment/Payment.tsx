@@ -3,15 +3,14 @@ import React, { useState } from "react";
 import { Box, Card, CardContent, TextField, Typography, Button } from "@mui/material";
 import Image from "next/image";
 import Files from "react-files";
-
+import { paymentConfirmation } from "@/app/api/lib/paymentconfirmation"; 
 const Payment = () => {
+
   const [user, setUser] = useState({
     name: "",
-    email: "",
-    phone: "",
-    time: "",
-    date: "",
-    files: [] 
+    emailid: "",
+    mobile: "",
+    files: [],
   });
 
   const handleChange = (e:any) => {
@@ -28,13 +27,25 @@ const Payment = () => {
     });
   };
 
-  const onFilesError = (error:any, file:any) => {
-    console.log("Error uploading file:", error, file);
+  // const onFilesError = (error:any, file:any) => {
+  //   console.log("Error uploading file:", error, file);
+  // };
+
+  // const handleSubmit = () => {
+  //   console.log("Submitted Files:", user.files);
+  // };
+
+  const handleSubmit = async (e:any) => {
+    e.preventDefault();
+    try {
+      await paymentConfirmation(user.name,user.emailid,user.mobile,user.files);
+      alert('Payment confirmed successfully!');
+      // Optionally, redirect or perform any other action
+    } catch (error:any) {
+      alert('Failed to confirm payment: ' + error.message);
+    }
   };
 
-  const handleSubmit = () => {
-    console.log("Submitted Files:", user.files);
-  };
 
   return (
     <Box>
@@ -66,11 +77,13 @@ const Payment = () => {
             </Typography>
           </Box>
           <Box sx={{ width: { xs: "100%", lg: "40%" }, marginLeft: { xs: "4px", lg: "30%" }, marginTop: "10px" }}>
+          <form onSubmit={handleSubmit} method="post" encType="multipart/form-data">
             <TextField
               placeholder="Enter Name"
               label="Name"
               name="name"
               size="small"
+              type="submit"
               required
               focused
               value={user.name}
@@ -87,7 +100,7 @@ const Payment = () => {
               required
               focused
               type="email"
-              value={user.email}
+              value={user.emailid}
               onChange={handleChange}
               fullWidth
               margin="normal"
@@ -101,7 +114,7 @@ const Payment = () => {
               required
               focused
               type="tel"
-              value={user.phone}
+              value={user.mobile}
               onChange={handleChange}
               fullWidth
               margin="normal"
@@ -111,8 +124,10 @@ const Payment = () => {
             
             <Files
               className="files-dropzone"
+              type="file"
+              name="avatar"
               onChange={onFilesChange}
-              onError={onFilesError}
+              // onError={onFilesError}
               accepts={["image/*"]}
               multiple
               maxFiles={3}
@@ -146,6 +161,7 @@ const Payment = () => {
                 Submit
               </Button>
             </Box>
+             </form>
           </Box>
         </CardContent>
       </Card>
