@@ -12,12 +12,15 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 
 const pages = ["Resource", "Company", "Reviews"];
 const resourceMenuItems = ["Case Studies", "Webiners", "Our Events"];
 const companyMenuItems = ["About Us", "Careers", "Contact Us"];
 
 export default function Appbar() {
+  const router = useRouter();
   const [user, setAnchorElNav] = React.useState(null);
   const [resourceMenuAnchor, setResourceMenuAnchor] = React.useState(null);
   const [companyMenuAnchor, setCompanyMenuAnchor] = React.useState(null);
@@ -25,7 +28,7 @@ export default function Appbar() {
   const [resourceMenuActive, setResourceMenuActive] = React.useState(false);
   const [companyMenuActive, setCompanyMenuActive] = React.useState(false);
   const [reviewsActive, setReviewsActive] = React.useState(false);
-
+ 
   const handleOpenNavMenu = (event: any) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -53,9 +56,11 @@ export default function Appbar() {
     setCompanyMenuAnchor(null);
     setCompanyMenuActive(false);
   };
+
   const handleReviewsOpen = (event: any) => {
     setReviewsAnchor(event.currentTarget);
     setReviewsActive(true);
+    router.push('/review');
   };
 
   const handleReviewsClose = () => {
@@ -142,7 +147,7 @@ export default function Appbar() {
             </Menu>
           </Box>
 
-          {/*Resources Menu */}
+          
           <Menu
             id="resources-menu"
             anchorEl={resourceMenuAnchor}
@@ -162,7 +167,19 @@ export default function Appbar() {
             onClose={handleCompanyMenuClose}
           >
             {companyMenuItems.map((item) => (
-              <MenuItem key={item} onClick={handleCompanyMenuClose}>
+              <MenuItem
+                key={item}
+                onClick={() => {
+                  handleCompanyMenuClose();
+                  if (item === "Contact Us") {
+                    router.push("/contact");
+                  } else if (item === "About Us") {
+                    router.push("/about");
+                  } else if (item === "Careers") {
+                    router.push("/career");
+                  }
+                }}
+              >
                 {item}
               </MenuItem>
             ))}
