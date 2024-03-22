@@ -23,7 +23,8 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import SearchIcon from "../../../public/SearchIcon.svg";
 import Avatar from "@mui/material/Avatar";
-import Cources from "../component/Dashboard/CourseCard";
+import Cources from "../Components/dashboard/CourseCard";
+import { useRouter } from "next/navigation";
 
 const theme = createTheme({
   components: {
@@ -38,6 +39,7 @@ const theme = createTheme({
       },
     },
   },
+  
   typography: {
     h3: {
       fontSize: "2rem", // Adjusted for responsiveness
@@ -77,6 +79,7 @@ const theme = createTheme({
 });
 
 export default function Dashboard() {
+  const router = useRouter();
   const currentTheme = useTheme();
   const isMobile = useMediaQuery(currentTheme.breakpoints.down("sm"));
 
@@ -248,7 +251,7 @@ export default function Dashboard() {
               </Grid>
             </Grid>
 
-            <Box sx={{ display: "flex", justifyContent: "left", marginTop: 5 }}>
+            <Box sx={{ display: "flex", justifyContent: "left", marginTop: 5 }}  onClick={() => router.push('/bookdemo')} >
               <Button
                 size="large"
                 variant="contained"

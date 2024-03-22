@@ -1,5 +1,5 @@
-import Contact from "../component/contact/Contact"
-import Appbar from "../component/appbar/Appbar"
+import Contact from "../Components/contact/Contact"
+import Appbar from "../Components/contact/Contact"
 
 export default function contact(){
     return(
