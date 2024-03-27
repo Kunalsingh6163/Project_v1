@@ -12,6 +12,7 @@ import {
   Avatar
 } from "@mui/material";
 import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
+import Pagination from '@mui/material/Pagination';
 
 const all = [
   {
@@ -34,46 +35,7 @@ const all = [
     avatarSrc: "/aws.svg",
     avatarSx: { width: "70px", height: "70px" },
   },
-  {
-    title: "React JS Beginner to Advance With NextJS",
-    avatarSrc: "/react.svg",
-    avatarSx: { width: "70px", height: "70px" },
-  },
-  {
-    title: "AWS-S3 Bucket",
-    avatarSrc: "/aws.svg",
-    avatarSx: { width: "70px", height: "70px" },
-  },
-  {
-    title: "React JS Beginner to Advance With NextJS",
-    avatarSrc: "/react.svg",
-    avatarSx: { width: "70px", height: "70px" },
-  },
-  {
-    title: "AWS-S3 Bucket",
-    avatarSrc: "/aws.svg",
-    avatarSx: { width: "70px", height: "70px" },
-  },
-  {
-    title: "Node Beginners to Advance with ExpressJS",
-    avatarSrc: "/mern.svg",
-    avatarSx: { width: "70px", height: "70px" },
-  },
-  {
-    title: "AWS-S3 Bucket",
-    avatarSrc: "/aws.svg",
-    avatarSx: { width: "70px", height: "70px" },
-  },
-  {
-    title: "Node Beginners to Advance with ExpressJS",
-    avatarSrc: "/node.svg",
-    avatarSx: { width: "70px", height: "70px" },
-  },
-  {
-    title: "React JS Beginner to Advance With NextJS",
-    avatarSrc: "/react.svg",
-    avatarSx: { width: "70px", height: "70px" },
-  },
+  
 ];
 
 export default function All() {
@@ -125,7 +87,7 @@ export default function All() {
         <Grid
           container
           spacing={4}
-          columnSpacing={-2}
+          columnSpacing={-1}
         
         >
           {all.map((subject, index) => (
@@ -135,6 +97,8 @@ export default function All() {
                   width: { xs: "350px", md: "449px" },
                   height: "179px",
                   backgroundColor: "#B7E5FF80",
+                  marginLeft:"38%",
+                  marginTop:"10%"
                 }}
               >
                 <CardContent>
@@ -186,6 +150,9 @@ export default function All() {
             </Grid>
           ))}
         </Grid>
+        <Box marginTop={10} display={"flex"} justifyContent={"center"}>
+        <Pagination count={10} />
+        </Box>
       </Box>
     </Box>
   );

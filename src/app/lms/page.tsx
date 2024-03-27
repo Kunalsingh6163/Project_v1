@@ -1,8 +1,8 @@
-import Appbar from "../component/appbar/Appbar";
-import Footer from "../component/footer/Footer";
-import Subjects from "../component/dashboard/Subjects";
-import Userdetails from "../component/dashboard/ActivityCard";
-import Adverstisment from "../component/dashboard/Advert";
+import Appbar from "../Components/appbar/Appbar";
+import Footer from "../Components/footer/Footer";
+import Subjects from "../Components/dashboard/Subjects";
+import Userdetails from "../Components/dashboard/ActivityCard";
+import Adverstisment from "../Components/dashboard/Advert";
 
 export default function contact() {
   return (
